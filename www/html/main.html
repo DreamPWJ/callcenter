@@ -1,0 +1,93 @@
+<ion-view >
+  <ion-nav-title>
+    <h1 class="title">客服中心</h1>
+  </ion-nav-title>
+  <ion-content overflow-scroll="false" has-bouncing="true" class="stable-bg" >
+    <ion-slide-box show-pager="true" does-continue="true" auto-play="true" slide-interval="3000"
+                   delegate-handle="slide-box-images" id="call-center-slide">
+      <ion-slide>
+        <img ng-src="img/banner/banner1.jpg" alt="" class="full-image"/>
+      </ion-slide>
+      <ion-slide>
+        <img ng-src="img/banner/banner2.jpg" alt="" class="full-image"/>
+      </ion-slide>
+      <ion-slide>
+        <img ng-src="img/banner/banner3.jpg" alt="" class="full-image"/>
+      </ion-slide>
+    </ion-slide-box>
+
+    <div class="row row-no-padding  light-bg  main-list">
+      <a class="col border-rb" nav-direction=forward ng-href="#/details"><p class="balanced-bg"><i
+        class="icon ion-ios-book-outline"></i></p>
+        <span>考试及科目介绍  <i>报名时间 形式</i></span>
+      </a>
+      <a class="col border-b" nav-direction=forward ng-href="#/details"><p class="calm-bg"><i
+        class="icon ion-ios-flag"></i></p>
+        <span>报名进度中心 <i>报名流程、进度</i></span></a>
+    </div>
+    <div class="row row-no-padding  light-bg main-list ">
+      <a nav-direction=forward ng-href="#/details" class="col border-r "><p class="energized-bg"><i
+        class="icon ion-ios-paperplane"></i></p>
+        <span>管家使用指南 <i>使用方法 注意事项</i></span></a>
+      <a nav-direction=forward ng-href="#" class="col">
+      </a>
+    </div>
+    <p></p>
+    <div class="list ">
+      <p class="item item-divider light-bg item-borderless problem-title"><span>猜您遇到了以下问题</span></p>
+
+      <div class="item row problem-content">
+        <a class="col-25 text-center ">
+          <i class="icon ion-ios-help-outline"></i><br>
+          证件照
+        </a>
+        <div class="col-75">
+          <a  ng-href="#/details" class="border-b nowrap">如何拍摄合格的证件照</a>
+          <a  ng-href="#/details" class="nowrap">可以使用管家拍摄证件照的类型</a>
+        </div>
+      </div>
+      <div class="item row problem-content">
+        <a class="col-25 text-center ">
+          <i class="icon ion-ios-help-outline"></i><br>
+          报考记录
+        </a>
+        <div class="col-75">
+          <a  ng-href="#/details" class="border-b nowrap">报考记录的查看方法</a>
+          <a  ng-href="#/details" class="nowrap">报考记录的手动导入方法 </a>
+        </div>
+      </div>
+      <div class="item row problem-content">
+        <a class="col-25 text-center ">
+          <i class="icon ion-ios-help-outline"></i><br>
+          支付
+        </a>
+        <div class="col-75">
+          <a  ng-href="#/details" class="border-b nowrap">已经扣款仍显示未支付怎么办？</a>
+          <a  ng-href="#/details" class="nowrap">如何申请退费？ </a>
+        </div>
+      </div>
+      <div class="item row problem-content">
+        <a class="col-25 text-center ">
+          <i class="icon ion-ios-help-outline"></i><br>
+          增值服务
+        </a>
+        <div class="col-75">
+          <a  ng-href="#/details" class="border-b nowrap">我购买的教材什么时候发货？</a>
+          <a  ng-href="#/details" class="nowrap">我报名的模拟考试什么时候参加？ </a>
+        </div>
+      </div>
+      <div class="item row problem-content">
+        <a class="col-25 text-center ">
+          <i class="icon ion-ios-help-outline"></i><br>
+          准考证
+        </a>
+        <div class="col-75">
+          <a  ng-href="#/details" class="border-b nowrap">什么时候打印准考证？</a>
+          <a  ng-href="#/details" class="nowrap">在哪里打印准考证？ </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+
+

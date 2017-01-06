@@ -1,0 +1,142 @@
+/* Empty. Add your own CSS if you like */
+.list .item:first-child {
+  border: none;
+}
+
+.list .item:last-child {
+  border-bottom: none;
+}
+
+.item {
+  border-color: rgba(221, 221, 221, 0.3) !important;
+}
+
+.grey {
+  color: #aaa !important;
+}
+
+.grey-bg {
+  background-color: #aaa !important;;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#call-center-slide.slider, #call-center-slide.slider img {
+  height: 8rem !important;
+}
+
+.slider-pager-page {
+  position: relative;
+  z-index: 1000;
+  bottom: -0.8rem;
+  font-size: 0.5rem !important;
+}
+
+.slider-pager-page.active {
+  color: #f26604 !important;
+}
+
+.main-list {
+  margin-top: 0rem !important;
+}
+
+.main-list a {
+  height: 4.5rem;
+  text-decoration: none;
+}
+
+.main-list .col > p {
+  display: inline-block;
+  margin-left: 1.2rem;
+  margin-top: 1.2rem;
+  text-align: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  line-height: 1.8rem;
+
+}
+
+.main-list .col p > i {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+
+.main-list .col > span {
+  padding-left: 0.3rem;
+  color: #000000;
+
+}
+
+.main-list .col > span > i {
+  margin-top: -0.8rem;
+  padding-left: 3.2rem;
+  display: block;
+  color: #aaaaaa;
+  font-size: 0.7rem;
+}
+
+.problem-title span {
+  font-size: 0.8rem !important;
+  color: #aaaaaa !important;
+  border-left: 3px solid #f26604;
+  margin-left: -0.6rem;
+  padding-left: 0.6rem;
+}
+
+.problem-content {
+  margin-top: 0 !important;
+  padding: 0 !important;
+  height: 7rem;
+}
+
+.problem-content a.col-25 {
+  height: 7rem;
+  border-right: 1px solid rgba(221, 221, 221, 0.3);
+  font-size: 0.8rem;
+}
+
+.problem-content a.col-25 i {
+  position: relative;
+  top: 1.5rem;
+  font-size: 2.5rem;
+  color: #f26604 !important;
+}
+
+.problem-content a {
+  display: block;
+  color: #000000;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  font-size: 0.9rem;
+}
+
+.problem-content .col-75 {
+  padding-left: 0.5rem;
+}
+
+.border-rb {
+  border-right: 1px solid rgba(221, 221, 221, 0.3);
+  border-bottom: 1px solid rgba(221, 221, 221, 0.3);
+}
+
+.border-r {
+  border-right: 1px solid rgba(221, 221, 221, 0.3);
+}
+
+.border-b {
+  border-bottom: 1px solid rgba(221, 221, 221, 0.3);
+}
+
+.video {
+  height: 12rem;
+}
