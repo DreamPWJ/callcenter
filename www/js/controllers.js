@@ -7,12 +7,12 @@ angular.module('starter.controllers', [])
 
   //客服页面
   .controller('MainCtrl', function ($scope,CommonService, MainService) {
-    MainService.getAdvList({PrivateKey: 'oiox3tmqu1sn56x7occdd'}).success(function (data) { //获取轮播去
+    MainService.getAdvList({praviteKey: 'oiox3tmqu1sn56x7occdd'}).success(function (data) { //获取轮播去
       console.log(data);
       if(data.StatusCode==0){
 
       }else {
-      //  CommonService.platformPrompt(data.Msg,"close");
+      CommonService.platformPrompt(data.Msg,"close");
       }
     })
   })
