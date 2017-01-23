@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 //service在使用this指针，而factory直接返回一个对象
-  .service('CommonService', function ($ionicPopup, $ionicPopover, $rootScope, $state, $ionicModal, $ionicPlatform) {
+  .service('CommonService', function ($ionicPopup, $ionicPopover, $rootScope, $state) {
     return {
       platformPrompt: function (msg, stateurl) {
         this.showAlert("51报名管家", msg, stateurl);
@@ -34,7 +34,7 @@ angular.module('starter.services', [])
         var promise = deferred.promise
         promise = $http({
           method: 'GET',
-          url: CallCenter.api + "/GetTopBanner",
+          url: CallCenter.api + "GetTopBanner",
           params: params
         }).success(function (data) {
           deferred.resolve(data);// 声明执行成功，即http请求数据成功，可以返回数据了
