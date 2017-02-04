@@ -65,7 +65,7 @@ gulp.task('minifyJs', function () {
 
 /*压缩图片*/
 gulp.task('minImages', function(){
-  return gulp.src('./www/img/**/*.+(png|jpg|gif|svg)')
+  return gulp.src('./www/img/**/*.+(png|jpg|gif|svg|ico)')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest('./callcenter/img/'));
 });
