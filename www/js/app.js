@@ -31,7 +31,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services','st
         controller: 'MainCtrl'
       })
       .state('details', {//客服首页
-        url: '/details',
+        url: '/details/:type/:id',
         templateUrl: 'html/details.html',
         controller: 'DetailsCtrl'
       })

@@ -140,3 +140,8 @@ a {
 .video {
   height: 12rem;
 }
+
+/*修改覆盖弹出框默认样式*/
+.show-alert .popup, .show-confirm .popup {
+  text-align: center !important;
+}
