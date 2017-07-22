@@ -31,9 +31,10 @@ angular.module('starter.services', [])
     return {
       getAdvList: function (params) { //获取轮播图
         var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
-        var promise = deferred.promise
+        var promise = deferred.promise;
+        params.callback='JSON_CALLBACK';
         promise = $http({
-          method: 'GET',
+          method: 'JSONP',
           url: CallCenter.api + "/GetTopBanner",
           params: params
         }).success(function (data) {
@@ -45,9 +46,10 @@ angular.module('starter.services', [])
       },
       gtHeadHelpInfoList: function (params) { //获取帮助页面的接口列表
         var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
-        var promise = deferred.promise
+        var promise = deferred.promise;
+        params.callback='JSON_CALLBACK';
         promise = $http({
-          method: 'GET',
+          method: 'JSONP',
           url: CallCenter.api + "/GetHeadHelpInfoList",
           params: params
         }).success(function (data) {
@@ -63,9 +65,10 @@ angular.module('starter.services', [])
     return {
       getHelpInfoDetails: function (params) { //获取帮助信息详情接口
         var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
-        var promise = deferred.promise
+        var promise = deferred.promise;
+        params.callback='JSON_CALLBACK';
         promise = $http({
-          method: 'GET',
+          method: 'JSONP',
           url: CallCenter.api + "/GetHelpInfoDetails",
           params: params
         }).success(function (data) {
