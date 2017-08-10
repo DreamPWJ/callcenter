@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 //service在使用this指针，而factory直接返回一个对象
-  .service('CommonService', function ($ionicPopup, $ionicPopover, $rootScope, $state) {
+  .service('CommonService', function ($ionicPopup, $ionicPopover, $rootScope, $state,$ionicHistory) {
     return {
       platformPrompt: function (msg, stateurl) {
         this.showAlert("51报名管家", msg, stateurl);
