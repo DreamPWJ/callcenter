@@ -145,3 +145,16 @@ a {
 .show-alert .popup, .show-confirm .popup {
   text-align: center !important;
 }
+
+/*loading加载框背景*/
+.loading-container .loading {
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 20px 5px;
+  /*  background-color: rgba(0, 0, 0, 0);*/
+}
+
+.loading-container .loading span {
+  display: inline-block;
+  margin-top: 0.2rem;
+}

@@ -31,10 +31,9 @@ angular.module('starter.services', [])
     return {
       getAdvList: function (params) { //获取轮播图
         var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
-        var promise = deferred.promise;
-        params.callback='JSON_CALLBACK';
+        var promise = deferred.promise
         promise = $http({
-          method: 'JSONP',
+          method: 'GET',
           url: CallCenter.api + "/GetTopBanner",
           params: params
         }).success(function (data) {
@@ -46,10 +45,9 @@ angular.module('starter.services', [])
       },
       gtHeadHelpInfoList: function (params) { //获取帮助页面的接口列表
         var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
-        var promise = deferred.promise;
-        params.callback='JSON_CALLBACK';
+        var promise = deferred.promise
         promise = $http({
-          method: 'JSONP',
+          method: 'GET',
           url: CallCenter.api + "/GetHeadHelpInfoList",
           params: params
         }).success(function (data) {
@@ -65,10 +63,9 @@ angular.module('starter.services', [])
     return {
       getHelpInfoDetails: function (params) { //获取帮助信息详情接口
         var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
-        var promise = deferred.promise;
-        params.callback='JSON_CALLBACK';
+        var promise = deferred.promise
         promise = $http({
-          method: 'JSONP',
+          method: 'GET',
           url: CallCenter.api + "/GetHelpInfoDetails",
           params: params
         }).success(function (data) {
@@ -88,17 +85,17 @@ angular.module('starter.services', [])
         if (config.url.toString().indexOf('http://') === 0) {
           //http请求Loading加载动画
           $injector.get('$ionicLoading').show({
-            template: '<ion-spinner icon="bubbles" class="spinner-positive"></ion-spinner><p>',
-            animation: 'fade-in',
-            showBackdrop: false
+            template: '<p><ion-spinner icon="spiral" class="spinner-light"></ion-spinner><p>',
+            noBackdrop: true
           });
+          //授权
+          config.headers = config.headers || {};
+          var token = localStorage.getItem('token');
+          if (token) {
+            config.headers.authorization = token;
+          }
         }
-        //授权
-        config.headers = config.headers || {};
-        var token = localStorage.getItem('token');
-        if (token) {
-          config.headers.authorization = token;
-        }
+
         return config;
       },
       requestError: function (config) {//通过实现 requestError 方法拦截请求异常: 请求发送失败或者被拦截器拒绝
@@ -116,6 +113,13 @@ angular.module('starter.services', [])
       responseError: function (response) {////通过实现 responseError 方法拦截响应异常:后台调用失败 响应异常拦截器可以帮助我们恢复后台调用
         if (response.config.url.toString().indexOf('http://') === 0) {
           $injector.get('$ionicLoading').hide();
+          if (response.status == 401) {
+            $injector.get('CommonService').platformPrompt("访问授权失败");
+          } else if (response.status == 404) {
+            $injector.get('CommonService').platformPrompt("访问连接404");
+          } else if (response.status == -1) {
+            $injector.get('CommonService').platformPrompt("网络请求超时");
+          }
         }
         return response;
       }
