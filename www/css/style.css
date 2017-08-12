@@ -70,7 +70,6 @@ a {
   font-size: 1.1rem;
 }
 
-
 .main-list .col > span {
   padding-left: 0.3rem;
   color: #000000;
@@ -175,6 +174,65 @@ a {
   margin-top: 1rem;
 }
 
+.item-thumbnail-left {
+  padding-bottom: 0
+}
+
+.iconfont {
+  color: #585858;
+}
+
+.bar-energized {
+  /*  background-color: transparent;*/
+  /* background-image: none !important;*/
+}
+
+/* 去掉时候点击按钮灰色边框颜色*/
+.button.active, .button.activated {
+  border-color: transparent !important;
+  background-color: #e5e5e5;
+}
+
+#signin .header {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+#signin .header img {
+  max-width: 50px;
+  max-height: 50px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#signin .qian-dao-btn {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-box-shadow: 0 5px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 5px 0 rgba(255, 255, 255, 0.8);
+  right: 0.8rem;
+  background-color: #fff;
+  padding: 0.2em 1.3rem;
+  border-radius: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+#signin .qian-dao-btn p {
+  margin: 0;
+  font-size: 0.7rem !important;
+  color: #f26604;
+}
+
+#signin .qian-dao-btn:hover, #signin .qian-dao-btn:active {
+  /*  box-shadow: 0 0px 0 #fff;
+    background-color: #f26604;*/
+}
+
 .tool-tip {
   position: fixed;
   z-index: 10000;
@@ -189,7 +247,7 @@ a {
 
 }
 
-.tool-tip-message{
+.tool-tip-message {
   background-color: #ef473a;
   color: #ffffff;
   text-align: center;
@@ -198,8 +256,8 @@ a {
   box-shadow: 1px 1px 2px rgba(136, 136, 136, 0.5);
 }
 
-.tool-tip-message-success{
-  background-color: #f26604 ;
+.tool-tip-message-success {
+  background-color: #f26604;
   color: #ffffff;
   text-align: center;
   padding: 0.5rem 1.5rem;

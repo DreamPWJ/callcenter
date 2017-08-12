@@ -1,10 +1,31 @@
-<ion-view title="签到主页">
+<ion-view title="签到">
 
-  <ion-content overflow-scroll="false" has-bouncing="true" class="stable-bg">
+  <ion-content overflow-scroll="false" id="signin" class="stable-bg">
     <!--    <div ng-if="true" class="isNotDataHint">
           <i class="iconfont icon-xiaoxi"></i>
           <p>暂无数据</p>
         </div>-->
+    <ion-list>
+      <ion-item class="item-avatar-left item-energized light header">
+        <img ng-src="img/head.jpg" alt="头像">
+        <p style="color: #fff;">我的京豆: <span style="font-size: 1.5rem;">144</span> 个</p>
+        <div class="qian-dao-btn"><p>已连续签到</p>
+          <p><strong style="font-size: 1.2rem;">5</strong>天</p></div>
+      </ion-item>
+      <ion-item class="item-icon-left">
+        <i class="icon iconfont icon-notification" style="font-size: 1.5rem;color: #f26604;"></i>
+        签到小报新闻
+      </ion-item>
+      <p></p>
+      <ion-item class="item-divider light-bg energized text-center">
+        <i class="icon iconfont icon-favor" style="color: #f26604"></i> 签到 好礼相送
+      </ion-item>
+      <img ng-src="img/signin/sign-goods.png" class="full-image" alt="签到商品图片">
+
+      <ion-item class="item-divider light-bg energized text-center">
+        <i class="icon iconfont icon-emoji" style="color: #f26604"></i> 交好友 玩游戏 押话题
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
 
