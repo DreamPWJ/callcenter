@@ -35,7 +35,7 @@ angular.module('starter.controllers', [])
   })
 
   //详情页面
-  .controller('DetailsCtrl', function ($scope,$stateParams, CommonService, DetailsService) {
+  .controller('DetailsCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
     //{    "HelpType":0 //帮助类型ID ，不能为空 ，类型ID固定是3个值，1表示是管家使用指南，2表示是报名进度中心，其他情况全部给0"AutoHelpID":1 //帮助内容表单 id，来源于接口105，只有当helptype是0的时候才需要传入}
     //获取帮助信息详情接口
     DetailsService.getHelpInfoDetails({
@@ -54,4 +54,7 @@ angular.module('starter.controllers', [])
     })
 
   })
+  //签到页面
+  .controller('SignInCtrl', function ($scope, CommonService) {
 
+  })
