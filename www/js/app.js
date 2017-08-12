@@ -57,6 +57,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'html/signin/signin.html',
         controller: 'SignInCtrl'
       })
+      .state('compare', {//对比首页
+        url: '/compare',
+        templateUrl: 'html/compare/compare.html',
+        controller: 'CompareCtrl'
+      })
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('signin');
+    $urlRouterProvider.otherwise('compare');
   })

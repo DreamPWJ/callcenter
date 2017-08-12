@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 //service在使用this指针，而factory直接返回一个对象
-  .service('CommonService', function ($ionicPopup, $ionicPopover, $rootScope, $ionicPlatform, $state, $ionicHistory, $timeout,$ionicViewSwitcher, $ionicModal) {
+  .service('CommonService', function ($ionicPopup, $ionicPopover, $rootScope, $ionicPlatform, $state, $ionicHistory, $timeout, $ionicViewSwitcher, $ionicModal) {
     return {
       platformPrompt: function (msg, stateurl, stateparams) {
         CommonService = this;
@@ -184,7 +184,95 @@ angular.module('starter.services', [])
       }
     }
   })
+  .service('SigninService', function ($q, $http, CallCenter) { //签到服务
+    return {}
+  })
+  .service('CompareService', function ($q, $http, CallCenter, $ionicScrollDelegate) { //对比服务
+    return {
+      selectCity: function ($scope) { //选择城市
 
+        //请求城市数据
+        var d = "";
+        $http({
+          method: 'GET',
+          url: 'html/data/city.json',
+          cache: true
+        }).success(function (data) {
+          d = data;
+        }).error(function (data, header, config, status) {
+
+        }).then(function () {
+          var cache_currentCity = "cache_currentCity";
+          var newCities = []
+          // 初始化城市索引
+          var cities = []
+          var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          chars.split('').forEach(function (c) {
+            var c = {
+              index: c,
+              cities: [],
+            }
+            cities.push(c)
+          }, this);
+
+          cities.forEach(function (c) {
+            d.forEach(function (city) {
+              if (c.index == city.index) {
+                c.cities.push(city);
+              }
+            }, this)
+          }, this);
+
+          cities.forEach(function (c) {
+            if (c.cities.length > 0) {
+              newCities.push(c);
+            }
+          }, this);
+
+          //城市数据
+          $scope.cities = newCities;
+
+
+          $scope.citySelected = function (c) {
+            /*      $scope.currentCity = c;*/
+            /*                 $ionicHistory.goBack();*/
+          }
+
+          function alphabetMove(pPositionY) {
+            var currentItem, targetItem;
+            var d = document;
+            // 根据手指触摸的位置找到当前的element
+            currentItem = d.elementFromPoint(d.body.clientWidth - 1, pPositionY);
+            // 判断当前的element是不是 索引
+            if (!currentItem || currentItem.className.indexOf('index-bar') < 0) return;
+
+            // 根据当前的索引找到列表的索引
+            targetItem = document.getElementById(currentItem.innerText);
+            document.getElementById('indexs-title').style.display = 'block'
+            document.getElementById('indexs-title').innerText = currentItem.innerText;
+
+            $ionicScrollDelegate.$getByHandle('cityScroll').scrollBy(0, targetItem.getBoundingClientRect().top - 88, false)
+          }
+
+          //绑定事件
+          var indexsBar = document.getElementById('indexs-bar');
+          indexsBar.addEventListener('touchstart', function (e) {
+            alphabetMove(e.changedTouches[0].clientY);
+          });
+
+          indexsBar.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+            alphabetMove(e.changedTouches[0].clientY);
+          });
+          indexsBar.addEventListener('touchend', function () {
+            document.getElementById('indexs-title').style.display = 'none';
+          });
+        });
+
+
+      }
+    }
+  })
   .factory('MyInterceptor', function ($injector) {//设置请求头信息的地方是$httpProvider.interceptors。也就是为请求或响应注册一个拦截器。使用这种方式首先需要定义一个服务
 
     return {

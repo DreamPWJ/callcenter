@@ -1,4 +1,45 @@
 /* Empty. Add your own CSS if you like */
+/* 网格布局row水平方向居中*/
+.row-horizontal-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+}
+
+/* 网格布局row水平方向均匀分布左右留有距离*/
+.row-horizontal-around {
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.row-horizontal-start {
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.row-horizontal-end {
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.row-horizontal-between {
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
 .list .item:first-child {
   border: none;
 }
@@ -27,6 +68,30 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.bottom-0 {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  -webkit-box-shadow: 0px 0px 20px #ddd;
+  box-shadow: 0px 0px 20px #ddd
+}
+
+.bottom-0 .button {
+  padding: 0 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem !important;
+}
+
+.bottom-0 .button.icon:before, .bottom-0 .button.iconfont:before {
+  font-size: 1.2rem !important;
+}
+
+.has-button-footer {
+  bottom: 67px;
 }
 
 #call-center-slide.slider, #call-center-slide.slider img {
@@ -191,6 +256,158 @@ a {
 .button.active, .button.activated {
   border-color: transparent !important;
   background-color: #e5e5e5;
+}
+
+/*修改覆盖弹出框默认样式*/
+
+.show-alert .popup, .show-confirm .popup {
+  text-align: center;
+  background-color: #fff !important;
+  border-radius: 0.5rem;
+}
+
+.show-alert .popup .popup-head, .show-confirm .popup .popup-head {
+  border: none;
+  padding: 8px;
+  color: #585858 !important;
+}
+
+.show-alert .popup .popup-title, .show-confirm .popup .popup-title {
+  color: #585858 !important;
+}
+
+/*.show-alert .popup .popup-body, .show-confirm .popup .popup-body,  {
+
+}*/
+
+.show-alert .popup .popup-buttons, .show-confirm .popup .popup-buttons {
+  min-height: 2.6rem !important;
+  padding: 0;
+  border-top: 1px solid rgba(221, 221, 221, 0.3) !important;
+
+}
+
+.show-alert .button, .show-confirm .button {
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  height: 2.6rem !important;
+  min-height: 2.6rem !important;
+  background-color: #ffffff;
+  color: #00ACFF !important;
+}
+
+.show-alert .button:first-child, .show-confirm .button:first-child {
+  color: #f26604 !important;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.show-alert .button:last-child, .show-confirm .button:last-child {
+  border-bottom-right-radius: 0.5rem;
+}
+
+.show-alert .button:nth-child(2), .show-confirm .button:nth-child(2) {
+  color: #00ACFF !important;
+  border-left: 1px solid rgba(221, 221, 221, 0.3);
+
+}
+
+.city .item, .city .item-divider {
+  font-size: 12px;
+  font-family: "Microsoft YaHei";
+  width: 95%;
+}
+
+#indexs-title {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #FFF;
+  font-size: 300%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#indexs-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding-top: 15px;
+  width: 20px;
+  height: 464px;
+  z-index: 2;
+  text-align: center;
+  color: #545454;
+  background-color: #fff;
+
+}
+
+.select-category label {
+  position: relative;
+  display: inline-block;;
+  margin-bottom: 0.5rem;
+  width: 90%;
+  height: 4.5rem;
+}
+
+.select-category .iconfont {
+  font-size: 1.8rem !important;
+  color: #585858;
+}
+
+.select-category label span {
+  opacity: 0;
+  color: #fff !important;
+}
+
+.select-category label span:before {
+  content: '已选';
+  position: absolute;
+  color: #fff !important;
+  font-size: 9px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  right: 0;
+  top: 4px;
+  z-index: 2000;
+}
+
+.select-category label span:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 1.6rem solid #f26604;
+  border-left: 1.6rem solid transparent;
+  right: -1px;
+  top: -1px;
+}
+
+.select-category input {
+  display: none;
+}
+
+.select-category input:checked + label > span {
+  opacity: 1;
+}
+
+.select-category input:checked + label > p {
+  /*  color: #f26604 !important;*/
+}
+
+.select-category input + label {
+  border: 1px solid rgba(221, 221, 221, 0.3);
+}
+
+.select-category input:checked + label {
+  border: 1px solid #f26604;
 }
 
 #signin .header {

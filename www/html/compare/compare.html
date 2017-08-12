@@ -1,0 +1,27 @@
+<ion-view title="选择品牌">
+
+  <ion-content overflow-scroll="false" class="stable-bg bar-hasheader" delegate-handle="cityScroll">
+
+    <div class="list city">
+
+      <div ng-repeat="city in cities">
+        <ion-item class="item-divider">
+          <h2 id="{{city.index}}" ng-bind="city.index"></h2>
+        </ion-item>
+        <ion-item class=" item-avatar-left" ng-click="citySelected(c)" ng-repeat="c in city.cities">
+          <img ng-src="img/logo.png" alt="标志">
+          <h2 class="padding-top">{{c.name}}</h2>
+        </ion-item>
+      </div>
+    </div>
+
+
+  </ion-content>
+  <div id="indexs-bar" class="has-header">
+    <div class="index-bar" ng-repeat="city in cities" ng-bind="city.index"></div>
+  </div>
+  <div id="indexs-title">
+  </div>
+</ion-view>
+
+

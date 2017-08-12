@@ -55,6 +55,24 @@ angular.module('starter.controllers', [])
 
   })
   //签到页面
-  .controller('SignInCtrl', function ($scope, CommonService) {
+  .controller('SignInCtrl', function ($scope, $ionicPopup, CommonService) {
+    //点击签到
+    $scope.qianDao = function () {
+      // 一个提示对话框
+      var alertPopup = $ionicPopup.alert({
+        cssClass: "show-alert",
+        templateUrl: "html/signin/signalert.html",
+        okText: '关闭',
+        okType: 'button-stable'
+      });
 
+    }
+
+    $scope.checkChecded = function () {
+      /*      CommonService.checkChecded($scope, $scope.services)*/
+    }
+  })
+  //比较页面
+  .controller('CompareCtrl', function ($scope, CommonService,CompareService) {
+    CompareService.selectCity($scope);
   })
