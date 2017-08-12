@@ -8,6 +8,6 @@ configMod.constant("CallCenter", {
   'name': 'CallCenter', //项目名称
   'debug': false, //调试标示 暂无使用
   'api': 'http://www.51bmw.cn/WebServers/WebService.asmx',//接口服务地址  使用
-  'version': '0.1.0' //当前版本号
+  'version': '1.0.0' //当前版本号
 });
 

@@ -1,11 +1,19 @@
 angular.module('starter.services', [])
 //service在使用this指针，而factory直接返回一个对象
-  .service('CommonService', function ($ionicPopup, $ionicPopover, $rootScope, $state,$ionicHistory) {
+  .service('CommonService', function ($ionicPopup, $ionicPopover, $rootScope, $ionicPlatform, $state, $ionicHistory, $timeout,$ionicViewSwitcher, $ionicModal) {
     return {
-      platformPrompt: function (msg, stateurl) {
-        this.showAlert("51报名管家", msg, stateurl);
+      platformPrompt: function (msg, stateurl, stateparams) {
+        CommonService = this;
+        $rootScope.commonService = CommonService;
+        $rootScope.commonService.toolTip(msg, "tool-tip-message-success");
+        if (stateurl == null || stateurl == '') {
+          $ionicHistory.goBack();
+        } else if (stateurl == 'close') {//不处理
+        } else {
+          $state.go(stateurl, stateparams, {reload: true});
+        }
       },
-      showAlert: function (title, template, stateurl) {
+      showAlert: function (title, template, stateurl, stateparams) {
         // 一个提示对话框
         var alertPopup = $ionicPopup.alert({
           cssClass: "show-alert",
@@ -20,12 +28,111 @@ angular.module('starter.services', [])
           } else if (stateurl == 'close') {//不处理
 
           } else {
-            $state.go(stateurl, {}, {reload: true});
+            $state.go(stateurl, stateparams, {reload: true});
           }
 
         });
+      },
+      showConfirm: function (title, template, okText, cancelText, stateurl, closeurl, confirmfunction, stateparams, stateparams2) {
+        var confirmPopup = $ionicPopup.confirm({
+          cssClass: "show-confirm",
+          title: '<strong>' + title + '</strong>',
+          template: template,
+          okText: okText,
+          cancelText: cancelText,
+          okType: 'button-energized',
+          cancelType: 'button-stable'
+        });
+
+        confirmPopup.then(function (res) {
+          if (res) {
+            if (stateurl != '') {
+              $state.go(stateurl, stateparams, {reload: true});
+              $ionicViewSwitcher.nextDirection("forward");//前进画效果
+            } else {
+              confirmfunction();
+            }
+
+          } else {
+            if (closeurl == 'close') {//不处理
+              return;
+            }
+            $state.go((closeurl == null || closeurl == '') ? 'tab.main' : closeurl, stateparams2, {reload: true})
+            $ionicViewSwitcher.nextDirection("back");//后退动画效果
+          }
+        });
+      },
+      customModal: function ($scope, templateurl, index, animation) { //自定义modal ndex页面出现多个模态框的情况 进行命名区别 index 可以为1.2.3.   animation动画slide-in-left slide-in-right
+        index = index == undefined ? "" : index;
+        $ionicModal.fromTemplateUrl(templateurl, {
+          scope: $scope,
+          animation: 'slide-in-up'
+        }).then(function (modal) {
+          $scope["modal" + index] = modal;
+        });
+        $scope.openModal = function () {
+          $scope["modal" + index].show();
+        };
+        $scope.closeModal = function () {
+          $scope["modal" + index].hide();
+        };
+        //当我们用到模型时，清除它！
+        $scope.$on('$destroy', function () {
+          $scope["modal" + index].remove();
+        });
+        // 当隐藏的模型时执行动作
+        $scope.$on('modal.hidden', function () {
+          // 执行动作
+        });
+        // 当移动模型时执行动作
+        $scope.$on('modal.removed', function () {
+          // 执行动作
+        });
+      }
+      ,
+      ionicPopover: function ($scope, templateUrl, index) {//页面出现多个Popover框的情况 进行命名区别 index 可以为1.2.3
+        index = index == undefined ? "" : index;
+        $ionicPopover.fromTemplateUrl('html/popover/' + templateUrl, {
+          scope: $scope,
+        }).then(function (popover) {
+          $scope["popover" + index] = popover;
+        });
+        $scope.openPopover = function ($event) {
+          $scope["popover" + index].show($event);
+          //动态计算popover高度
+          $rootScope.popoversize = document.querySelectorAll("#mypopover a").length * 55 + 'px';
+        };
+        $scope.closePopover = function () {
+          $scope["popover" + index].hide();
+        };
+        //Cleanup the popover when we're done with it! 清除浮动框
+        $scope.$on('$destroy', function () {
+          $scope["popover" + index].remove();
+        });
+        $scope.$on('$ionicView.leave', function () {
+          $scope["popover" + index].hide();
+        });
+        // 在隐藏浮动框后执行
+        $scope.$on('popover' + index + '.hidden', function () {
+          // Execute action
+        });
+        // 移除浮动框后执行
+        $scope.$on('popover' + index + '.removed', function () {
+          // Execute action
+        });
+      },
+      toolTip: function (msg, type) { //全局tooltip提示
+        this.message = msg;
+        this.type = type;
+        //提示框显示最多3秒消失
+        var _self = this;
+        $timeout(function () {
+          _self.message = null;
+          _self.type = null;
+        }, 3000);
       }
     }
+
   })
   .service('MainService', function ($q, $http, CallCenter) { //首页服务定义
     return {
@@ -85,7 +192,7 @@ angular.module('starter.services', [])
         if (config.url.toString().indexOf('http://') === 0) {
           //http请求Loading加载动画
           $injector.get('$ionicLoading').show({
-            template: '<p><ion-spinner icon="spiral" class="spinner-light"></ion-spinner><p>',
+            template: '<p><ion-spinner icon="spiral" class="spinner-light"></ion-spinner></p>',
             noBackdrop: true
           });
           //授权
