@@ -7951,7 +7951,7 @@ input[type="checkbox"][readonly] {
 .checkbox {
   position: relative;
   display: inline-block;
-  padding: 7px 7px;
+  padding: 5.5px 5.5px;
   cursor: pointer; }
   .checkbox input:before,
   .checkbox .checkbox-icon:before {
@@ -8056,8 +8056,8 @@ input[type="checkbox"][readonly] {
 .checkbox input,
 .checkbox-icon {
   position: relative;
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   display: block;
   border: 0;
   background: transparent;
@@ -8070,7 +8070,7 @@ input[type="checkbox"][readonly] {
     height: 100%;
     border-width: 1px;
     border-style: solid;
-    border-radius: 28px;
+    border-radius: 22px;
     background: #fff;
     content: ' ';
     -webkit-transition: background-color 20ms ease-in-out;
@@ -8090,8 +8090,8 @@ input:checked + .checkbox-icon:before {
   top: 33%;
   left: 25%;
   display: table;
-  width: 14px;
-  height: 6px;
+  width: 11px;
+  height: 4.5px;
   border: 1px solid #fff;
   border-top: 0;
   border-right: 0;
@@ -8116,7 +8116,7 @@ input:checked + .checkbox-icon:before {
   border-width: 2px;
   top: 19%;
   left: 25%;
-  width: 13px;
+  width: 10px;
   height: 7px; }
 
 .platform-android .item-checkbox-right .checkbox-square .checkbox-icon::after {
@@ -8139,7 +8139,7 @@ input:checked + .checkbox-icon:after {
   opacity: 1; }
 
 .item-checkbox {
-  padding-left: 60px; }
+  padding-left: 54px; }
   .item-checkbox.active {
     box-shadow: none; }
 
@@ -8149,10 +8149,10 @@ input:checked + .checkbox-icon:after {
   right: 8px;
   left: 8px;
   z-index: 3;
-  margin-top: -21px; }
+  margin-top: -16.5px; }
 
 .item-checkbox.item-checkbox-right {
-  padding-right: 60px;
+  padding-right: 54px;
   padding-left: 16px; }
 
 .item-checkbox-right .checkbox input,
