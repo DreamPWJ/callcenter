@@ -92,6 +92,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     //产品列表
     $stateProvider
+      .state('index', {//客服首页
+        url: '/index',
+        templateUrl: 'html/index.html',
+        controller: 'IndexCtrl'
+      })
       .state('main', {//客服首页
         url: '/main',
         templateUrl: 'html/main.html',
@@ -113,5 +118,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'CompareCtrl'
       })
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('compare');
+    $urlRouterProvider.otherwise('index');
   })

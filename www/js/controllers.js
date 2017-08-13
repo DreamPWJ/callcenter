@@ -4,7 +4,10 @@ angular.module('starter.controllers', [])
     $httpProvider.interceptors.push('MyInterceptor');
 
   })
+  //APP主页面
+  .controller('IndexCtrl', function ($scope, CommonService) {
 
+  })
   //客服页面
   .controller('MainCtrl', function ($scope, CommonService, MainService, $timeout, $ionicSlideBoxDelegate) {
     //获取轮播去
@@ -73,6 +76,6 @@ angular.module('starter.controllers', [])
     }
   })
   //比较页面
-  .controller('CompareCtrl', function ($scope, CommonService,CompareService) {
+  .controller('CompareCtrl', function ($scope, CommonService, CompareService) {
     CompareService.selectCity($scope);
   })
