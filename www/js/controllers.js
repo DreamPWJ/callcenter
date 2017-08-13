@@ -77,5 +77,8 @@ angular.module('starter.controllers', [])
   })
   //比较页面
   .controller('CompareCtrl', function ($scope, CommonService, CompareService) {
-    CompareService.selectCity($scope);
+    $scope.$on('$ionicView.enter', function () {
+      CompareService.selectCity($scope);
+    })
+
   })

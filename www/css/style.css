@@ -410,13 +410,10 @@ a {
   border: 1px solid #f26604;
 }
 
-#index {
-
-}
 
 #index div {
   position: relative;
-  top: 30%;
+  top: 30%!important;
 }
 
 #signin .header {

@@ -202,7 +202,6 @@ angular.module('starter.services', [])
         }).error(function (data, header, config, status) {
 
         }).then(function () {
-          var cache_currentCity = "cache_currentCity";
           var newCities = []
           // 初始化城市索引
           var cities = []
@@ -234,8 +233,7 @@ angular.module('starter.services', [])
 
 
           $scope.citySelected = function (c) {
-            /*      $scope.currentCity = c;*/
-            /*                 $ionicHistory.goBack();*/
+
           }
 
           function alphabetMove(pPositionY) {
