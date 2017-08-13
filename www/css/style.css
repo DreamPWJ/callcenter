@@ -529,14 +529,15 @@ a {
 }
 
 #parametersdetails .parametersdetails-header span {
-  height: 5rem;
-  line-height: 5rem;
+  padding: 2rem 0.2rem;
 }
 
-
 #parametersdetails .parametersdetails-body span {
-  height: 4rem;
-  line-height: 4rem;
+  padding: 1.6rem 0.2rem;
+}
+
+#parametersdetails .row + .row {
+  margin-top: 0 !important;
 }
 
 .tool-tip {
