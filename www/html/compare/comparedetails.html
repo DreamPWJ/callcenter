@@ -6,13 +6,20 @@
     <h1 class="title ">车型对比</h1>
   </ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear" ui-sref="parametersdetails">参数对比</button>
+    <button class="button button-clear"  ui-sref="parametersdetails">参数对比</button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="false" >
-    <div class="row row-horizontal-around row-no-padding row-center row-wrap text-center light-bg">
+  <ion-content overflow-scroll="false" id="comparedetails">
+    <div class="row row-horizontal-around row-no-padding row-center row-wrap text-center light-bg compare-header">
       <div class="col-45 card">
-        车型1</div>
-      <div class="col-45 card">车型2</div>
+        <img ng-src="img/signin/sign-goods.png" alt="图片">
+        <h4>车型1</h4>
+        <p class="grey nowrap">车型1详情</p>
+      </div>
+      <div class="col-45 card">
+        <img ng-src="img/signin/sign-goods.png" alt="图片">
+        <h4>车型2</h4>
+        <p class="grey nowrap">车型2详情</p>
+      </div>
     </div>
   </ion-content>
 
