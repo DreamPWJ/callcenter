@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.config', 'starter.directive'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.config', 'starter.directive', 'ngCordova'])
 
-  .run(function ($ionicPlatform, $location, $ionicHistory, $cordovaToast) {
+  .run(function ($ionicPlatform,$rootScope,$location,$ionicHistory,$cordovaToast) {
     $ionicPlatform.ready(function () {
 
       if (window.StatusBar) {
