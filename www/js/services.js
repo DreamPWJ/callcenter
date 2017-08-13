@@ -187,10 +187,13 @@ angular.module('starter.services', [])
   .service('SigninService', function ($q, $http, CallCenter) { //签到服务
     return {}
   })
-  .service('CompareService', function ($q, $http, CallCenter, $ionicScrollDelegate) { //对比服务
+  .service('CompareService', function ($q, $http, CallCenter, $ionicScrollDelegate,$ionicLoading) { //对比服务
     return {
       selectCity: function ($scope) { //选择城市
-
+        $ionicLoading.show({
+          template: '<p><ion-spinner icon="spiral" class="spinner-light"></ion-spinner></p>',
+          noBackdrop: true
+        });
         //请求城市数据
         var d = "";
         $http({
@@ -227,7 +230,7 @@ angular.module('starter.services', [])
               newCities.push(c);
             }
           }, this);
-
+          $ionicLoading.hide();
           //城市数据
           $scope.cities = newCities;
 
