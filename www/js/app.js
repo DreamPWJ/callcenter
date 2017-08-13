@@ -5,10 +5,60 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.config', 'starter.directive'])
 
-  .run(function ($ionicPlatform) {
+  .run(function ($ionicPlatform, $location, $ionicHistory, $cordovaToast) {
     $ionicPlatform.ready(function () {
 
+      if (window.StatusBar) {
+        //状态栏颜色设置
+        // org.apache.cordova.statusbar required
+        if ($ionicPlatform.is('ios')) {
+          StatusBar.styleLightContent();
+        }
+        if ($ionicPlatform.is('android')) {
+          StatusBar.backgroundColorByHexString("#f26604");
+        }
 
+      }
+
+      //hide splash immediately 加载完成立刻隐藏启动画面
+      if (navigator && navigator.splashscreen) {
+        setTimeout(function () { //延迟显示 让页面先加载 不显示不美观的加载过程
+          navigator.splashscreen.hide();
+        }, 500);
+
+      }
+
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
+
+      }
+      //主页面显示退出提示
+      $ionicPlatform.registerBackButtonAction(function (e) {
+        e.preventDefault();
+
+        // Is there a page to go back to? 制定页面返回退出程序
+        if ($location.path() == '/index') {
+          if ($rootScope.backButtonPressedOnceToExit) {
+            ionic.Platform.exitApp();
+          } else {
+            $rootScope.backButtonPressedOnceToExit = true;
+            $cordovaToast.showShortCenter('再按返回退出51报名管家');
+            setTimeout(function () {
+              $rootScope.backButtonPressedOnceToExit = false;
+            }, 2000);
+          }
+
+        } else if ($ionicHistory.backView()) {
+          // Go back in history
+          $ionicHistory.goBack();
+        } else {
+        }
+
+        return false;
+      }, 101);
     });
   })
   .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
