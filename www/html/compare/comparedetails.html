@@ -8,15 +8,30 @@
   <ion-nav-buttons side="right">
     <button class="button button-clear"  ui-sref="parametersdetails">参数对比</button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="false" id="comparedetails">
+  <ion-content overflow-scroll="false" id="comparedetails" has-bouncing="true">
     <div class="row row-horizontal-around row-no-padding row-center  text-center light-bg compare-header">
       <div class="col-45 card">
-        <img ng-src="img/signin/sign-goods.png" alt="图片">
+        <img ng-src="img/compare/car.jpg" alt="图片">
         <h4>车型1</h4>
         <p class="grey nowrap">车型1详情</p>
       </div>
+      <h3>PK</h3>
       <div class="col-45 card">
-        <img ng-src="img/signin/sign-goods.png" alt="图片">
+        <img ng-src="img/compare/car.jpg" alt="图片">
+        <h4>车型2</h4>
+        <p class="grey nowrap">车型2详情</p>
+      </div>
+
+    </div>
+    <h5 class="text-center">购车预算</h5>
+    <div class="row row-horizontal-around row-no-padding row-center  text-center light-bg compare-price">
+      <div class="col-45 ">
+
+        <h4>车型1</h4>
+        <p class="grey nowrap">车型1详情</p>
+      </div>
+      <div class="col-45 ">
+
         <h4>车型2</h4>
         <p class="grey nowrap">车型2详情</p>
       </div>

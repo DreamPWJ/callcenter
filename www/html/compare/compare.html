@@ -8,7 +8,7 @@
   <ion-nav-buttons side="right">
     <button class="button button-clear icon iconfont icon-add" ng-click="openCustomModal()"></button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="false" class="stable-bg" ng-class="{true:'has-button-footer'}[dataList]">
+  <ion-content overflow-scroll="false" class="stable-bg" has-bouncing="true" ng-class="{true:'has-button-footer'}[dataList]">
     <div ng-if="dataList.length==0" class="isNotDataHint">
       <i class="iconfont icon-xiaoxi"></i>
       <p>车型库还空着呐！添加车型对比吧</p>

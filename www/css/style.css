@@ -462,19 +462,41 @@ a {
     background-color: #f26604;*/
 }
 
+#comparedetails .compare-header {
+  position: relative;
+}
+
 #comparedetails .compare-header div {
-  height: 8rem !important;
+  height: 8.5rem !important;
   text-align: center;
+}
+
+#comparedetails .compare-header div.card {
+  margin: 10px !important;
 }
 
 #comparedetails .compare-header div img {
   width: 70%;
   height: 4rem !important;
-  margin: 0.3rem;
+  margin: 0.5rem;
 }
 
 #comparedetails .compare-header div h4 {
   margin: 0;
+}
+
+#comparedetails .compare-header h3 {
+  position: absolute;
+  color: #f26604;
+  font-size: 1.8rem;
+  -webkit-transform: rotate(5deg);
+  transform: rotate(5deg);
+  top: 20%;
+  left: 45%;
+}
+
+#comparedetails .compare-price {
+
 }
 
 .tool-tip {

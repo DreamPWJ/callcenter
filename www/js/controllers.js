@@ -80,12 +80,8 @@ angular.module('starter.controllers', [])
     //选择modal
     CommonService.customModal($scope, 'html/compare/comparemodal.html');
 
-    //modal打开 加载数据
-/*    $scope.$on('modal.shown', function () {
-      if ($scope.modalName == 'comparemodal') {*/
-        CompareService.selectCity($scope);
-/*      }
-    })*/
+    //modal 加载数据
+    CompareService.selectCity($scope);
 
     //点击选择
     $scope.openCustomModal = function () {
