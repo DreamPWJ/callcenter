@@ -76,7 +76,7 @@ angular.module('starter.controllers', [])
     }
   })
   //比较页面
-  .controller('CompareCtrl', function ($scope, CommonService, CompareService) {
+  .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
     //选择modal
     CommonService.customModal($scope, 'html/compare/comparemodal.html');
     //点击选择城市
@@ -103,4 +103,17 @@ angular.module('starter.controllers', [])
       });
       $scope.ischecked = ischeckedarray.length >= 2 ? true : false;
     }
+
+    //开始对比
+    $scope.compare = function () {
+      $state.go('comparedetails')
+    }
+  })
+  //综合对比
+  .controller('CompareDetailsCtrl', function ($scope, CommonService, CompareService) {
+
+  })
+  //参数对比
+  .controller('ParametersDetailsCtrl', function ($scope, CommonService, CompareService) {
+
   })

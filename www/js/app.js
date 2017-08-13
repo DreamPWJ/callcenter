@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.config', 'starter.directive', 'ngCordova'])
 
-  .run(function ($ionicPlatform,$rootScope,$location,$ionicHistory,$cordovaToast) {
+  .run(function ($ionicPlatform, $rootScope, $location, $ionicHistory, $cordovaToast) {
     $ionicPlatform.ready(function () {
 
       if (window.StatusBar) {
@@ -116,6 +116,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url: '/compare',
         templateUrl: 'html/compare/compare.html',
         controller: 'CompareCtrl'
+      })
+      .state('comparedetails', {//综合对比
+        url: '/comparedetails',
+        templateUrl: 'html/compare/comparedetails.html',
+        controller: 'CompareDetailsCtrl'
+      })
+      .state('parametersdetails', {//参数对比
+        url: '/parametersdetails',
+        templateUrl: 'html/compare/parametersdetails.html',
+        controller: 'ParametersDetailsCtrl'
       })
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('index');
