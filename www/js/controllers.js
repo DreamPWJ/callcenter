@@ -77,5 +77,12 @@ angular.module('starter.controllers', [])
   })
   //比较页面
   .controller('CompareCtrl', function ($scope, CommonService, CompareService) {
+    //选择modal
+    CommonService.customModal($scope, 'html/compare/comparemodal.html');
+    //点击选择城市
+    $scope.openCustomModal = function () {
+      $scope.modal.show();
       CompareService.selectCity($scope);
+    }
+
   })
