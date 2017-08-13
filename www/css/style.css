@@ -495,8 +495,48 @@ a {
   left: 45%;
 }
 
-#comparedetails .compare-price {
+#comparedetails .compare-price .circle {
+  margin: 0.6rem auto;
+  padding-top: 1.5rem;
+  width: 7.8rem;
+  height: 7.8rem;
+  border-radius: 50%;
+}
 
+#comparedetails .compare-price .circle h4, #comparedetails .compare-price h5 {
+  color: inherit;
+  margin: 0.2rem;
+}
+
+#comparedetails .compare-price .circle p {
+  font-size: 0.7rem;
+}
+
+#comparedetails .compare-price .button {
+  min-height: 36px;
+  height: 36px;
+  line-height: 36px;
+}
+
+#comparedetails .compare-price .circle.first {
+  color: #00ACFF;
+  border: 4px solid #D5E3FD;
+}
+
+#comparedetails .compare-price .circle.last {
+  color: #f26604;
+  border: 4px solid #FFD8DC;
+}
+
+#parametersdetails .parametersdetails-header span {
+  height: 5rem;
+  line-height: 5rem;
+}
+
+
+#parametersdetails .parametersdetails-body span {
+  height: 4rem;
+  line-height: 4rem;
 }
 
 .tool-tip {
