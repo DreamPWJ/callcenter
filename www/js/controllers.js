@@ -79,10 +79,19 @@ angular.module('starter.controllers', [])
   .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
     //选择modal
     CommonService.customModal($scope, 'html/compare/comparemodal.html');
-    //点击选择城市
+
+    //modal打开 加载数据
+    $scope.$on('modal.shown', function () {
+      if ($scope.modalName == 'comparemodal') {
+        CompareService.selectCity($scope);
+      }
+    })
+
+    //点击选择
     $scope.openCustomModal = function () {
+      $scope.modalName = 'comparemodal';
       $scope.modal.show();
-      CompareService.selectCity($scope);
+
     }
     //选择对比
     $scope.dataList = [];

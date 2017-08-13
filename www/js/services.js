@@ -83,6 +83,7 @@ angular.module('starter.services', [])
         // 当隐藏的模型时执行动作
         $scope.$on('modal.hidden', function () {
           // 执行动作
+          $scope.modalName = ''; //清除modal名
         });
         // 当移动模型时执行动作
         $scope.$on('modal.removed', function () {
