@@ -187,7 +187,7 @@ angular.module('starter.services', [])
   .service('SigninService', function ($q, $http, CallCenter) { //签到服务
     return {}
   })
-  .service('CompareService', function ($q, $http, CallCenter, $ionicScrollDelegate,$ionicLoading) { //对比服务
+  .service('CompareService', function ($q, $http, CallCenter, $ionicScrollDelegate, $ionicLoading) { //对比服务
     return {
       selectCity: function ($scope) { //选择城市
         $ionicLoading.show({
@@ -234,10 +234,6 @@ angular.module('starter.services', [])
           //城市数据
           $scope.cities = newCities;
 
-
-          $scope.citySelected = function (c) {
-
-          }
 
           function alphabetMove(pPositionY) {
             var currentItem, targetItem;

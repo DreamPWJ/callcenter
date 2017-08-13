@@ -10,7 +10,7 @@ angular.module('starter.controllers', [])
   })
   //客服页面
   .controller('MainCtrl', function ($scope, CommonService, MainService, $timeout, $ionicSlideBoxDelegate) {
-    //获取轮播去
+    //获取轮播图片
     MainService.getAdvList({praviteKey: 'oiox3tmqu1sn56x7occdd'}).success(function (data) {
       if (data.StatusCode == 0) {
         $scope.banner = data.Data;
@@ -84,5 +84,23 @@ angular.module('starter.controllers', [])
       $scope.modal.show();
       CompareService.selectCity($scope);
     }
+    //选择对比
+    $scope.dataList = [];
+    $scope.citySelected = function (data) {
+      $scope.dataList.push(data);
+      $scope.modal.hide();
+    }
 
+    //检测选中个数
+
+    $scope.checkChecded = function (array) {
+      $scope.ischecked = false;
+      var ischeckedarray = [];
+      angular.forEach(array, function (item) {
+        if (item.checked) {
+          ischeckedarray.push(true);
+        }
+      });
+      $scope.ischecked = ischeckedarray.length >= 2 ? true : false;
+    }
   })
