@@ -419,8 +419,7 @@ a {
 }
 
 #index div {
-  position: relative;
-  top: 30% !important;
+  margin-top: 30%;
 }
 
 #signin .header {
