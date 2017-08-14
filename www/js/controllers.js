@@ -81,11 +81,13 @@ angular.module('starter.controllers', [])
     CommonService.customModal($scope, 'html/compare/comparemodal.html');
 
     //modal 加载数据
-    CompareService.selectCity($scope);
+    $scope.$on('$ionicView.afterEnter', function () {
+      CompareService.selectCity($scope);
+    })
 
     //点击选择
     $scope.openCustomModal = function () {
-      /*  $scope.modalName = 'comparemodal';*/
+      $scope.modalName = 'comparemodal';
       $scope.modal.show();
 
     }

@@ -236,35 +236,37 @@ angular.module('starter.services', [])
           $scope.cities = newCities;
           //modal打开执行
           $scope.$on('modal.shown', function () {
-            function alphabetMove(pPositionY) {
-              var currentItem, targetItem;
-              var d = document;
-              // 根据手指触摸的位置找到当前的element
-              currentItem = d.elementFromPoint(d.body.clientWidth - 1, pPositionY);
-              // 判断当前的element是不是 索引
-              if (!currentItem || currentItem.className.indexOf('index-bar') < 0) return;
+            if ($scope.modalName == 'comparemodal') {
+              function alphabetMove(pPositionY) {
+                var currentItem, targetItem;
+                var d = document;
+                // 根据手指触摸的位置找到当前的element
+                currentItem = d.elementFromPoint(d.body.clientWidth - 1, pPositionY);
+                // 判断当前的element是不是 索引
+                if (!currentItem || currentItem.className.indexOf('index-bar') < 0) return;
 
-              // 根据当前的索引找到列表的索引
-              targetItem = document.getElementById(currentItem.innerText);
-              document.getElementById('indexs-title').style.display = 'block'
-              document.getElementById('indexs-title').innerText = currentItem.innerText;
+                // 根据当前的索引找到列表的索引
+                targetItem = document.getElementById(currentItem.innerText);
+                document.getElementById('indexs-title').style.display = 'block'
+                document.getElementById('indexs-title').innerText = currentItem.innerText;
 
-              $ionicScrollDelegate.$getByHandle('cityScroll').scrollBy(0, targetItem.getBoundingClientRect().top - 88, false)
+                $ionicScrollDelegate.$getByHandle('cityScroll').scrollBy(0, targetItem.getBoundingClientRect().top - 88, false)
+              }
+
+              //绑定事件
+              var indexsBar = document.getElementById('indexs-bar');
+              indexsBar.addEventListener('touchstart', function (e) {
+                alphabetMove(e.changedTouches[0].clientY);
+              });
+
+              indexsBar.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+                alphabetMove(e.changedTouches[0].clientY);
+              });
+              indexsBar.addEventListener('touchend', function () {
+                document.getElementById('indexs-title').style.display = 'none';
+              });
             }
-
-            //绑定事件
-            var indexsBar = document.getElementById('indexs-bar');
-            indexsBar.addEventListener('touchstart', function (e) {
-              alphabetMove(e.changedTouches[0].clientY);
-            });
-
-            indexsBar.addEventListener('touchmove', function (e) {
-              e.preventDefault();
-              alphabetMove(e.changedTouches[0].clientY);
-            });
-            indexsBar.addEventListener('touchend', function () {
-              document.getElementById('indexs-title').style.display = 'none';
-            });
           });
 
         })
