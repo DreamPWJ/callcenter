@@ -112,6 +112,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'html/signin/signin.html',
         controller: 'SignInCtrl'
       })
+      .state('signindetails', {//签到详情
+        url: '/signindetails',
+        templateUrl: 'html/signin/signindetails.html',
+        controller: 'SignInDetailsCtrl'
+      })
       .state('compare', {//对比首页
         url: '/compare',
         templateUrl: 'html/compare/compare.html',

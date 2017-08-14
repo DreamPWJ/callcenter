@@ -75,6 +75,10 @@ angular.module('starter.controllers', [])
       /*      CommonService.checkChecded($scope, $scope.services)*/
     }
   })
+  //签到详情
+  .controller('SignInDetailsCtrl', function ($scope, CommonService) {
+
+  })
   //比较页面
   .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
     //选择modal
