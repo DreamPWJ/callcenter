@@ -81,9 +81,9 @@ angular.module('starter.controllers', [])
   })
   //比较页面
   .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
-    $scope.compare={
-      showDelete: false,//删除按钮是否显示
-    }
+    $scope.compare = {
+      isEdit: false,//是否编辑
+    };
     //选择modal
     CommonService.customModal($scope, 'html/compare/comparemodal.html');
 
@@ -109,15 +109,39 @@ angular.module('starter.controllers', [])
 
     $scope.checkChecded = function (array) {
       $scope.ischecked = false;
-      var ischeckedarray = [];
+      $scope.ischeckedarray = [];
       angular.forEach(array, function (item) {
         if (item.checked) {
-          ischeckedarray.push(true);
+          $scope.ischeckedarray.push(true);
         }
       });
-      $scope.ischecked = ischeckedarray.length >= 2 ? true : false;
+      $scope.ischecked = $scope.ischeckedarray.length >= 2 ? true : false;
     }
-
+    //编辑
+    $scope.edit = function () {
+      $scope.compare.isEdit = true;
+    }
+    //编辑全部
+    $scope.editAll = function () {
+      $scope.ischeckedarray = [];
+      angular.forEach($scope.dataList, function (item) {
+        item.checked = true;
+        $scope.ischeckedarray.push(true);
+      });
+    }
+    //编辑取消
+    $scope.editCancel = function () {
+      $scope.compare.isEdit = false;
+    }
+    //删除比较
+    $scope.deleteCompare = function () {
+      console.log($scope.dataList);
+      angular.forEach($scope.dataList, function (item, index) {
+        if (item.checked) {
+          $scope.dataList.splice(index, 1);//删除
+        }
+      });
+    }
     //开始对比
     $scope.compare = function () {
       $state.go('comparedetails')

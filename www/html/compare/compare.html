@@ -1,34 +1,41 @@
 <ion-view>
   <ion-nav-buttons side="left">
-    <button class="button button-clear icon ion-ios-arrow-left" nav-direction=back ng-click="$ionicGoBack()"></button>
+    <button ng-if="!compare.isEdit" class="button button-clear icon ion-ios-arrow-left" nav-direction=back
+            ng-click="$ionicGoBack()"></button>
+    <button ng-if="compare.isEdit" class="button button-clear " ng-click="editCancel()">取消</button>
   </ion-nav-buttons>
   <ion-nav-title>
     <h1 class="title ">班级对比</h1>
   </ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear icon iconfont icon-add" ng-click="openCustomModal()"></button>
-    <button class="button button-clear icon iconfont icon-edit" ng-click="compare.showDelete = !compare.showDelete;"></button>
+    <div ng-if="!compare.isEdit">
+      <button class="button button-clear icon iconfont icon-add"
+              ng-click="openCustomModal()"></button>
+      <button class="button button-clear icon iconfont icon-edit" ng-click="edit()"></button>
+    </div>
+    <button ng-if="compare.isEdit" class="button button-clear " ng-click="editAll()">全选</button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="false" id="compare" class="stable-bg" has-bouncing="true" ng-class="{true:'has-button-footer'}[dataList]">
+  <ion-content overflow-scroll="false" id="compare" class="stable-bg" has-bouncing="true"
+               ng-class="{true:'has-button-footer'}[dataList]">
     <div ng-if="dataList.length==0" class="isNotDataHint">
       <i class="iconfont icon-xiaoxi"></i>
       <p>班级还空着呐！添加班级对比吧</p>
     </div>
-    <ion-list class="item-remove-animate compare-list" show-delete="compare.showDelete">
-      <ion-item ng-repeat="item in dataList">
-      <ion-delete-button class="ion-minus-circled"
-                         ng-click="">
-      </ion-delete-button>
-      <ion-checkbox  class="checkbox-energized " ng-click="checkChecded(dataList)" ng-model="item.checked">
+    <ion-list class="compare-list">
+      <ion-checkbox ng-repeat="item in dataList" class="checkbox-energized " ng-click="checkChecded(dataList)"
+                    ng-model="item.checked" ng-checked="item.checked">
         {{item.name}}
       </ion-checkbox>
-      </ion-item>
     </ion-list>
   </ion-content>
   <div ng-if="dataList.length!=0" class="padding light-bg bottom-0" keyboard-attach>
-    <button ng-disabled="!ischecked" class="button button-energized full-image "
+    <button ng-if="!compare.isEdit" ng-disabled="!ischecked" class="button button-energized full-image "
             ng-click="compare()">
       开始对比
+    </button>
+    <button ng-if="compare.isEdit" ng-disabled="!(ischeckedarray.length>=1)" class="button button-assertive full-image "
+            ng-click="deleteCompare()">
+      删除
     </button>
   </div>
 </ion-view>
