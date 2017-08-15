@@ -61,19 +61,58 @@ angular.module('starter.controllers', [])
   .controller('SignInCtrl', function ($scope, $ionicPopup, CommonService) {
     //点击签到
     $scope.qianDao = function () {
+      $scope.drawData = [{
+        key: 'a', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+      },
+        {key: 'b', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"},
+        {
+          key: 'c', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+        }, {
+          key: 'd', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+        }, {
+          key: 'e', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+        }, {
+          key: 'f', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+        }
+      ];
       // 一个提示对话框
       var alertPopup = $ionicPopup.alert({
         cssClass: "show-alert",
         templateUrl: "html/signin/signalert.html",
+        scope: $scope,
         okText: '关闭',
         okType: 'button-stable'
       });
+      alertPopup.then(function (res) {
+        $scope.isChecded = false;
+      });
+    }
+
+    $scope.checkChecded = function (index) {
+      if($scope.isChecded) return;
+      $scope.isChecded = true;
+      window.setTimeout(function () {
+          $scope.drawData = [{
+            key: 'a', value: "积分2个", icon: "icon-favorfill", img: "img/logo.png"
+          },
+            {key: 'b', value: "谢谢参与", icon: "icon-emoji", img: "img/logo.png"},
+            {
+              key: 'c', value: "积分1个", icon: "icon-favorfill", img: "img/logo.png"
+            }, {
+              key: 'd', value: "新东方￥50", icon: "icon-moneybagfill", img: "img/logo.png"
+            }, {
+              key: 'e', value: "积分5个", icon: "icon-favorfill", img: "img/logo.png"
+            }, {
+              key: 'f', value: "新东方￥60", icon: "icon-moneybagfill", img: "img/logo.png"
+            }
+          ];
+          $scope.drawData[index].checked = true;
+          $scope.$apply();
+        }
+        , 500)
 
     }
 
-    $scope.checkChecded = function () {
-      /*      CommonService.checkChecded($scope, $scope.services)*/
-    }
   })
   //签到详情
   .controller('SignInDetailsCtrl', function ($scope, CommonService) {

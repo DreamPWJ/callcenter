@@ -406,8 +406,12 @@ a {
   opacity: 1;
 }
 
-.select-category input:checked + label > p {
+.select-category input:checked + label > p, .select-category input:checked + label > .iconfont {
   /*  color: #f26604 !important;*/
+  -webkit-transform: rotate3d(0, 1, 0, 360deg);
+  transform: rotate3d(0, 1, 0, 360deg);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 
 .select-category input + label {
@@ -545,6 +549,14 @@ a {
   min-height: 38px;
   height: 38px;
   line-height: 38px;
+}
+
+.icon-energized {
+  color: #f26604 !important;
+}
+
+.icon-positive {
+  color: #00ACFF !important;
 }
 
 .tool-tip {
