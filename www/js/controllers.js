@@ -135,12 +135,13 @@ angular.module('starter.controllers', [])
     }
     //删除比较
     $scope.deleteCompare = function () {
-      console.log($scope.dataList);
-      angular.forEach($scope.dataList, function (item, index) {
-        if (item.checked) {
-          $scope.dataList.splice(index, 1);//删除
-        }
-      });
+      var len = $scope.dataList.length - 1;
+      for (var i = len; i >= 0; i--) {
+        $scope.dataList.splice(i, 1);
+      }
+      if ($scope.dataList.length == 0) {
+        $scope.compare.isEdit = false;
+      }
     }
     //开始对比
     $scope.compare = function () {
