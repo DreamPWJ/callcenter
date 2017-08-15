@@ -81,6 +81,9 @@ angular.module('starter.controllers', [])
   })
   //比较页面
   .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
+    $scope.compare={
+      showDelete: false,//删除按钮是否显示
+    }
     //选择modal
     CommonService.customModal($scope, 'html/compare/comparemodal.html');
 
