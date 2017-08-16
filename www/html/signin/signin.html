@@ -8,8 +8,10 @@
       <ion-item class="item-avatar-left item-energized light header">
         <img ng-src="img/head.jpg" alt="头像">
         <p style="color: #fff;">我的积分: <span style="font-size: 1.5rem;">144</span> 个</p>
-        <div class="qian-dao-btn" ng-click="qianDao()"><p>已连续签到</p>
+        <div ng-if="drawData" class="qian-dao-btn" ng-click="qianDao()"><p>已连续签到</p>
           <p><strong style="font-size: 1.2rem;">5</strong>天</p></div>
+        <div ng-if="!drawData" class="qian-dao-btn" ng-click="qianDao()"><p style="font-size: 0.8rem!important;">签到领积分</p>
+          <p></div>
       </ion-item>
       <ion-item class="item-icon-left">
         <i class="icon iconfont icon-notification" style="font-size: 1.5rem;color: #f26604;"></i>
