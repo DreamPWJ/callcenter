@@ -1,20 +1,20 @@
-<ion-list >
+<ion-list>
   <ion-item class="text-center item-energized item-divider " style="border-radius: 1.8rem">
-    今日已签到
+    签到成功,已领3积分,翻牌得奖励
   </ion-item>
-  <ion-item class="item-borderless item-light item-divider " >
+  <ion-item class="item-borderless item-light item-divider ">
     <p>今日{{isChecded?'已':'可'}}翻 1 张牌</p>
   </ion-item>
   <div class="row row-center row-wrap text-center light-bg select-category padding-top">
     <div ng-click="checkChecded($index)" class="col-33" ng-repeat="item in drawData">
-      <input type="checkbox" id="{{item.key}}" ng-model="item.checked"  ng-disabled="isChecded">
+      <input type="checkbox" id="{{item.key}}" ng-model="item.checked" ng-disabled="isChecded">
       <label for="{{item.key}}">
-        <i class="iconfont  {{item.icon}}" ng-class="{true:'icon-energized',false:'icon-positive'}[isChecded===true]" ></i>
+        <i class="iconfont  {{item.icon}}"
+           ng-class="{true:'icon-energized',false:'icon-positive'}[isChecded===true]"></i>
         <span></span>
         <p style="font-size:85%;">{{item.value}}</p>
       </label>
     </div>
-
   </div>
 </ion-list>
 

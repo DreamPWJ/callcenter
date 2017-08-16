@@ -215,6 +215,7 @@ a {
 
 /*修改覆盖弹出框默认样式*/
 .show-alert .popup, .show-confirm .popup {
+  width: 280px;
   text-align: center !important;
 }
 
