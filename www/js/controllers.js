@@ -58,7 +58,19 @@ angular.module('starter.controllers', [])
 
   })
   //签到页面
-  .controller('SignInCtrl', function ($scope, $ionicPopup, CommonService) {
+  .controller('SignInCtrl', function ($scope, $ionicPopup, CommonService, SigninService) {
+    //获取签到记录
+    SigninService.getSignin({
+      userId: "67644",//用户id
+      tokenInfo: "8261142b-34db-4e67-ac93-afe03ba8bb9b" //用户token
+    }).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.signinInfo = data.Data;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
     //点击签到
     $scope.qianDao = function () {
       $scope.drawData = [{
@@ -89,7 +101,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.checkChecded = function (index) {
-      if($scope.isChecded) return;
+      if ($scope.isChecded) return;
       $scope.isChecded = true;
       window.setTimeout(function () {
           $scope.drawData = [{
@@ -115,11 +127,11 @@ angular.module('starter.controllers', [])
 
   })
   //签到详情
-  .controller('SignInDetailsCtrl', function ($scope, CommonService) {
+  .controller('SignInDetailsCtrl', function ($scope, CommonService, SigninService) {
 
   })
   //比较页面
-  .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
+  .controller('CompareCtrl', function ($scope, $state, CommonService, SigninService) {
     $scope.compare = {
       isEdit: false,//是否编辑
     };
