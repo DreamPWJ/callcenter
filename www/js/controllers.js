@@ -131,7 +131,7 @@ angular.module('starter.controllers', [])
 
   })
   //比较页面
-  .controller('CompareCtrl', function ($scope, $state, CommonService, SigninService) {
+  .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
     $scope.compare = {
       isEdit: false,//是否编辑
     };
