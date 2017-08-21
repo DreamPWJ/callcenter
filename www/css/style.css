@@ -215,7 +215,7 @@ a {
 
 /*修改覆盖弹出框默认样式*/
 .show-alert .popup, .show-confirm .popup {
-  width: 280px;
+  width: 290px;
   text-align: center !important;
 }
 
@@ -407,7 +407,7 @@ a {
   opacity: 1;
 }
 
-.select-category input:checked + label > p, .select-category input:checked + label > .iconfont {
+.select-category input:checked + label > p, .select-category input:checked + label > .iconfont, .select-category input:checked + label > img {
   /*  color: #f26604 !important;*/
   -webkit-transform: rotate3d(0, 1, 0, 360deg);
   transform: rotate3d(0, 1, 0, 360deg);

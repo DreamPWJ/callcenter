@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
   //签到页面
   .controller('SignInCtrl', function ($scope, $ionicPopup, CommonService, SigninService) {
     //获取签到记录
-    SigninService.getSignin({
+/*    SigninService.getSignin({
       userId: "67644",//用户id
       tokenInfo: "8261142b-34db-4e67-ac93-afe03ba8bb9b" //用户token
     }).success(function (data) {
@@ -70,21 +70,21 @@ angular.module('starter.controllers', [])
       } else {
         CommonService.platformPrompt(data.Msg, "close");
       }
-    })
+    })*/
     //点击签到
     $scope.qianDao = function () {
       $scope.drawData = [{
-        key: 'a', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+        key: 'a', value: "翻牌", icon: "", img: "img/logo.png"
       },
-        {key: 'b', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"},
+        {key: 'b', value: "翻牌", icon: "", img: "img/logo.png"},
         {
-          key: 'c', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+          key: 'c', value: "翻牌", icon: "", img: "img/logo.png"
         }, {
-          key: 'd', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+          key: 'd', value: "翻牌", icon: "", img: "img/logo.png"
         }, {
-          key: 'e', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+          key: 'e', value: "翻牌", icon: "", img: "img/logo.png"
         }, {
-          key: 'f', value: "翻牌", icon: "icon-likefill", img: "img/logo.png"
+          key: 'f', value: "翻牌", icon: "", img: "img/logo.png"
         }
       ];
       // 一个提示对话框
@@ -105,17 +105,17 @@ angular.module('starter.controllers', [])
       $scope.isChecded = true;
       window.setTimeout(function () {
           $scope.drawData = [{
-            key: 'a', value: "积分2个", icon: "icon-favorfill", img: "img/logo.png"
+            key: 'a', value: "积分2个", icon: "icon-favorfill", img: ""
           },
-            {key: 'b', value: "谢谢参与", icon: "icon-emoji", img: "img/logo.png"},
+            {key: 'b', value: "谢谢参与", icon: "icon-emoji", img: ""},
             {
-              key: 'c', value: "积分1个", icon: "icon-favorfill", img: "img/logo.png"
+              key: 'c', value: "积分1个", icon: "icon-favorfill", img: ""
             }, {
-              key: 'd', value: "新东方￥50", icon: "icon-moneybagfill", img: "img/logo.png"
+              key: 'd', value: "新东方￥50", icon: "icon-moneybagfill", img: ""
             }, {
-              key: 'e', value: "积分5个", icon: "icon-favorfill", img: "img/logo.png"
+              key: 'e', value: "积分5个", icon: "icon-favorfill", img: ""
             }, {
-              key: 'f', value: "新东方￥60", icon: "icon-moneybagfill", img: "img/logo.png"
+              key: 'f', value: "新东方￥60", icon: "icon-moneybagfill", img: ""
             }
           ];
           $scope.drawData[index].checked = true;

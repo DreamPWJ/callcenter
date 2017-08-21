@@ -9,8 +9,9 @@
     <div ng-click="checkChecded($index)" class="col-33" ng-repeat="item in drawData">
       <input type="checkbox" id="{{item.key}}" ng-model="item.checked" ng-disabled="isChecded">
       <label for="{{item.key}}">
-        <i class="iconfont  {{item.icon}}"
+        <i ng-if="item.icon" class="iconfont  {{item.icon}}"
            ng-class="{true:'icon-energized',false:'icon-positive'}[isChecded===true]"></i>
+        <img ng-if="item.img" class="full-image" ng-src="{{item.img}}" alt="翻牌图片">
         <span></span>
         <p style="font-size:85%;">{{item.value}}</p>
       </label>
