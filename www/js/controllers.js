@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
   //签到页面
   .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup, CommonService, SigninService) {
     //获取签到记录
-    SigninService.getSignin({
+/*    SigninService.getSignin({
       userId: "48156",//用户id
       tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
     }).success(function (data) {
@@ -70,11 +70,11 @@ angular.module('starter.controllers', [])
       } else {
         CommonService.platformPrompt(data.Msg, "close");
       }
-    })
+    })*/
     //点击签到
     $scope.qianDao = function () {
-      //获取签到记录
-      SigninService.signin({
+      //签到
+/*      SigninService.signin({
         inputJson: {
           "SignTypeId": "1",	//签到类型ID,0就返回当前最新积分，1表示每日签到，2表示参加模拟答题。现在后台系统默认签到+5，参加答题+10
         },
@@ -83,11 +83,11 @@ angular.module('starter.controllers', [])
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
-          /*          $scope.signinInfo = data.Data;*/
+          /!*          $scope.signinInfo = data.Data;*!/
         } else {
           CommonService.platformPrompt(data.Msg, "close");
         }
-      })
+      })*/
 
       $scope.drawData = [{
         key: 'a', value: "翻牌", icon: "", img: "img/logo.png"
