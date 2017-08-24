@@ -99,12 +99,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       })
       .state('main', {//客服首页
         url: '/main',
-        templateUrl: 'html/main.html',
+        templateUrl: 'html/callcenter/main.html',
         controller: 'MainCtrl'
       })
       .state('details', {//客服首页
         url: '/details/:type/:id',
-        templateUrl: 'html/details.html',
+        templateUrl: 'html/callcenter/details.html',
         controller: 'DetailsCtrl'
       })
       .state('signin', {//签到首页
@@ -112,10 +112,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'html/signin/signin.html',
         controller: 'SignInCtrl'
       })
-      .state('signindetails', {//签到详情
-        url: '/signindetails',
-        templateUrl: 'html/signin/signindetails.html',
-        controller: 'SignInDetailsCtrl'
+      .state('activitydetails', {//签到详情
+        url: '/activitydetails',
+        templateUrl: 'html/signin/activitydetails.html',
+        controller: 'ActivityDetailsCtrl'
       })
       .state('compare', {//对比首页
         url: '/compare',

@@ -10,7 +10,8 @@
         <p style="color: #fff;">我的积分: <span style="font-size: 1.5rem;">144</span> 个</p>
         <div ng-if="drawData" class="qian-dao-btn" ng-click="qianDao()"><p>已连续签到</p>
           <p><strong style="font-size: 1.2rem;">5</strong>天</p></div>
-        <div ng-if="!drawData" class="qian-dao-btn" ng-click="qianDao()"><p style="font-size: 0.8rem!important;">签到领积分</p>
+        <div ng-if="!drawData" class="qian-dao-btn" ng-click="qianDao()"><p style="font-size: 0.8rem!important;">
+          签到领积分</p>
           <p></div>
       </ion-item>
       <ion-item class="item-icon-left">
@@ -21,8 +22,10 @@
       <ion-item class="item-divider light-bg energized text-center">
         <i class="icon iconfont icon-favor" style="color: #f26604"></i> 签到 好礼相送
       </ion-item>
-      <img ui-sref="signindetails" ng-src="img/signin/sign-goods.png" class="full-image" alt="签到商品图片">
+      <img ui-sref="activitydetails" ng-src="img/signin/sign-goods.png" class="full-image" alt="签到商品图片">
+      <!--      <ion-item>
 
+            </ion-item>-->
 
     </ion-list>
   </ion-content>
