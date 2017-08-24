@@ -57,6 +57,10 @@ angular.module('starter.controllers', [])
     })
 
   })
+  //申请售后服务
+  .controller('AfterSaleCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
+
+  })
   //签到页面
   .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup, CommonService, SigninService) {
     //获取签到记录

@@ -107,6 +107,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'html/callcenter/details.html',
         controller: 'DetailsCtrl'
       })
+      .state('aftersale', {//申请售后服务
+        url: '/aftersale',
+        templateUrl: 'html/callcenter/aftersale.html',
+        controller: ''
+      })
       .state('signin', {//签到首页
         url: '/signin',
         templateUrl: 'html/signin/signin.html',
