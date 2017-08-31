@@ -77,10 +77,7 @@ angular.module('starter.controllers', [])
         })*/
     //签到头条
     SigninService.getSigninHeadLines({
-      inputJson: {
-        userId: "48156",//用户id
-        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
-      }, praviteKey: 'oiox3tmqu1sn56x7occdd'
+      praviteKey: 'oiox3tmqu1sn56x7occdd'
     }).success(function (data) {
       console.log(data);
       if (data.StatusCode == 0) {
@@ -172,20 +169,6 @@ angular.module('starter.controllers', [])
     //选择modal
     CommonService.customModal($scope, 'html/compare/comparemodal.html');
 
-    //根据机构获取对应全部班级信息
-/*    CompareService.GetAllTrainClassList({
-      inputJson: {
-        userId: "48156",//用户id
-        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
-      }, praviteKey: 'oiox3tmqu1sn56x7occdd'
-    }).success(function (data) {
-      console.log(data);
-      if (data.StatusCode == 0) {
-        $scope.classList = data.Data;
-      } else {
-        CommonService.platformPrompt(data.Msg, "close");
-      }
-    })*/
     //modal 加载数据
     $scope.$on('$ionicView.afterEnter', function () {
       CompareService.selectCity($scope);
@@ -255,8 +238,7 @@ angular.module('starter.controllers', [])
       inputJson: {
         "MasterId": 1, //考霸ID，必须传入
       },
-      userId: "48156",//用户id
-      tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+      praviteKey: 'oiox3tmqu1sn56x7occdd'
     }).success(function (data) {
       console.log(data);
       if (data.StatusCode == 0) {
