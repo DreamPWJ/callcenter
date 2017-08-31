@@ -75,23 +75,37 @@ angular.module('starter.controllers', [])
             CommonService.platformPrompt(data.Msg, "close");
           }
         })*/
+    //签到头条
+    SigninService.getSigninHeadLines({
+      inputJson: {
+        userId: "48156",//用户id
+        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+      }, praviteKey: 'oiox3tmqu1sn56x7occdd'
+    }).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.signinHead = data.Data;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
     //点击签到
     $scope.qianDao = function () {
       //签到
-      /*      SigninService.signin({
-              inputJson: {
-                "SignTypeId": "1",	//签到类型ID,0就返回当前最新积分，1表示每日签到，2表示参加模拟答题。现在后台系统默认签到+5，参加答题+10
-              },
-              userId: "48156",//用户id
-              tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
-            }).success(function (data) {
-              console.log(data);
-              if (data.StatusCode == 0) {
-                /!*          $scope.signinInfo = data.Data;*!/
-              } else {
-                CommonService.platformPrompt(data.Msg, "close");
-              }
-            })*/
+      SigninService.signin({
+        inputJson: {
+          "SignTypeId": "1",	//签到类型ID,0就返回当前最新积分，1表示每日签到，2表示参加模拟答题。现在后台系统默认签到+5，参加答题+10
+        },
+        userId: "48156",//用户id
+        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+      }).success(function (data) {
+        console.log(data);
+        if (data.StatusCode == 0) {
+          /$scope.signinInfo = data.Data;*/
+        } else {
+          CommonService.platformPrompt(data.Msg, "close");
+        }
+      })
 
       $scope.drawData = [{
         key: 'a', value: "翻牌", icon: "", img: "img/logo.png"
@@ -159,20 +173,19 @@ angular.module('starter.controllers', [])
     CommonService.customModal($scope, 'html/compare/comparemodal.html');
 
     //根据机构获取对应全部班级信息
-    /*    CompareService.getALLOrganCourseList({
-          inputJson: {
-            "OrganID":"1" //培训机构ID，来自接口117返回
-          },
-          userId: "48156",//用户id
-          tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
-        }).success(function (data) {
-          console.log(data);
-          if (data.StatusCode == 0) {
-            /!*          $scope.signinInfo = data.Data;*!/
-          } else {
-            CommonService.platformPrompt(data.Msg, "close");
-          }
-        })*/
+/*    CompareService.GetAllTrainClassList({
+      inputJson: {
+        userId: "48156",//用户id
+        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+      }, praviteKey: 'oiox3tmqu1sn56x7occdd'
+    }).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.classList = data.Data;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })*/
     //modal 加载数据
     $scope.$on('$ionicView.afterEnter', function () {
       CompareService.selectCity($scope);

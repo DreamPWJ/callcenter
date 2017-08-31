@@ -201,6 +201,20 @@ angular.module('starter.services', [])
         });
         return promise; // 返回承诺，这里并不是最终数据，而是访问最终数据的API
       },
+      getSigninHeadLines: function (params) { //获取签到头条
+        var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
+        var promise = deferred.promise
+        promise = $http({
+          method: 'GET',
+          url: CallCenter.api + "/GetSigninHeadLines",
+          params: params
+        }).success(function (data) {
+          deferred.resolve(data);// 声明执行成功，即http请求数据成功，可以返回数据了
+        }).error(function (data) {
+          deferred.reject(data);// 声明执行失败，即服务器返回错误
+        });
+        return promise; // 返回承诺，这里并不是最终数据，而是访问最终数据的API
+      },
       signin: function (params) { //签到
         var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
         var promise = deferred.promise
@@ -219,12 +233,12 @@ angular.module('starter.services', [])
   })
   .service('CompareService', function ($q, $http, CallCenter, $ionicScrollDelegate, $ionicLoading) { //对比服务
     return {
-      getALLOrganCourseList: function (params) { //根据机构获取对应全部班级信息
+      GetAllTrainClassList: function (params) { //根据机构获取对应全部班级信息
         var deferred = $q.defer();// 声明延后执行，表示要去监控后面的执行
         var promise = deferred.promise
         promise = $http({
           method: 'GET',
-          url: CallCenter.api + "/GetALLOrganCourseList",
+          url: CallCenter.api + "/GetAllTrainClassList",
           params: params
         }).success(function (data) {
           deferred.resolve(data);// 声明执行成功，即http请求数据成功，可以返回数据了
@@ -256,10 +270,14 @@ angular.module('starter.services', [])
         var d = "";
         $http({
           method: 'GET',
-          url: 'html/data/city.json',
+          url: CallCenter.api + "/GetAllTrainClassList",
+          params:{
+           praviteKey: 'oiox3tmqu1sn56x7occdd'
+          },
           cache: true
         }).success(function (data) {
-          d = data;
+          console.log(data);
+          d = data.Data;
         }).error(function (data, header, config, status) {
 
         }).then(function () {
@@ -277,7 +295,7 @@ angular.module('starter.services', [])
 
           cities.forEach(function (c) {
             d.forEach(function (city) {
-              if (c.index == city.index) {
+              if (c.index == city.ItemIndex) {
                 c.cities.push(city);
               }
             }, this)
