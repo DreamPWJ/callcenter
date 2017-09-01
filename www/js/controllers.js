@@ -86,6 +86,18 @@ angular.module('starter.controllers', [])
         CommonService.platformPrompt(data.Msg, "close");
       }
     })
+    // 返回广告列表
+    /*    SigninService.getHFOrganAdList({
+          praviteKey: 'oiox3tmqu1sn56x7occdd'
+        }).success(function (data) {
+          console.log(data);
+          if (data.StatusCode == 0) {
+            $scope.adList = data.Data;
+          } else {
+            CommonService.platformPrompt(data.Msg, "close");
+          }
+        })*/
+
     //点击签到
     $scope.qianDao = function () {
       //签到
@@ -98,7 +110,7 @@ angular.module('starter.controllers', [])
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
-          /$scope.signinInfo = data.Data;*/
+          $scope.sign = data.Data;
         } else {
           CommonService.platformPrompt(data.Msg, "close");
         }
@@ -134,25 +146,53 @@ angular.module('starter.controllers', [])
     $scope.checkChecded = function (index) {
       if ($scope.isChecded) return;
       $scope.isChecded = true;
-      window.setTimeout(function () {
-          $scope.drawData = [{
-            key: 'a', value: "积分2个", icon: "icon-favorfill", img: ""
-          },
-            {key: 'b', value: "谢谢参与", icon: "icon-emoji", img: ""},
-            {
-              key: 'c', value: "积分1个", icon: "icon-favorfill", img: ""
-            }, {
-              key: 'd', value: "新东方￥50", icon: "icon-moneybagfill", img: ""
-            }, {
-              key: 'e', value: "积分5个", icon: "icon-favorfill", img: ""
-            }, {
-              key: 'f', value: "新东方￥60", icon: "icon-moneybagfill", img: ""
-            }
-          ];
-          $scope.drawData[index].checked = true;
-          $scope.$apply();
+      // 自动返回随机签到牌
+      SigninService.getUserAutoSigninList({
+        praviteKey: 'oiox3tmqu1sn56x7occdd'
+      }).success(function (data) {
+        console.log(data);
+        if (data.StatusCode == 0) {
+          $scope.drawData = data.Data;
+        } else {
+          CommonService.platformPrompt(data.Msg, "close");
         }
-        , 500)
+      }).then(function () {
+          window.setTimeout(function () {
+              /*            $scope.drawData = [{
+                            key: 'a', value: "积分2个", icon: "icon-favorfill", img: ""
+                          },
+                            {key: 'b', value: "谢谢参与", icon: "icon-emoji", img: ""},
+                            {
+                              key: 'c', value: "积分1个", icon: "icon-favorfill", img: ""
+                            }, {
+                              key: 'd', value: "新东方￥50", icon: "icon-moneybagfill", img: ""
+                            }, {
+                              key: 'e', value: "积分5个", icon: "icon-favorfill", img: ""
+                            }, {
+                              key: 'f', value: "新东方￥60", icon: "icon-moneybagfill", img: ""
+                            }
+                          ];*/
+              $scope.drawData[index].checked = true;
+              $scope.$apply();
+              // 提交翻牌子的信息
+              SigninService.setAutoSignin({   inputJson: {
+                AutoKey:$scope.drawData[index].key, // 接口135返回的牌子key值
+              },
+                userId: "48156",//用户id
+                tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+              }).success(function (data) {
+                console.log(data);
+                if (data.StatusCode == 0) {
+
+                } else {
+                  CommonService.platformPrompt(data.Msg, "close");
+                }
+              })
+            }
+            , 500)
+        }
+      )
+
 
     }
 
