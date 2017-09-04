@@ -128,7 +128,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'CompareCtrl'
       })
       .state('comparedetails', {//综合对比
-        url: '/comparedetails',
+        url: '/comparedetails/:itemid1/:itemid2',
+        cache:false,
         templateUrl: 'html/compare/comparedetails.html',
         controller: 'CompareDetailsCtrl'
       })

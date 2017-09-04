@@ -175,9 +175,10 @@ angular.module('starter.controllers', [])
               $scope.drawData[index].checked = true;
               $scope.$apply();
               // 提交翻牌子的信息
-              SigninService.setAutoSignin({   inputJson: {
-                AutoKey:$scope.drawData[index].key, // 接口135返回的牌子key值
-              },
+              SigninService.setAutoSignin({
+                inputJson: {
+                  AutoKey: $scope.drawData[index].key, // 接口135返回的牌子key值
+                },
                 userId: "48156",//用户id
                 tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
               }).success(function (data) {
@@ -237,7 +238,7 @@ angular.module('starter.controllers', [])
           $scope.ischeckedarray.push(true);
         }
       });
-      $scope.ischecked = $scope.ischeckedarray.length >= 2 ? true : false;
+      $scope.ischecked = $scope.ischeckedarray.length == 2 ? true : false;
     }
     //编辑
     $scope.edit = function () {
@@ -267,16 +268,37 @@ angular.module('starter.controllers', [])
     }
     //开始对比
     $scope.compare = function () {
-      $state.go('comparedetails')
+      var items = [];
+      angular.forEach($scope.dataList, function (item) {
+        if (item.checked) {
+          items.push(item.ItemID)
+        }
+      })
+      $state.go('comparedetails', {itemid1: items[0], itemid2: items[1]})
     }
   })
   //综合对比
-  .controller('CompareDetailsCtrl', function ($scope, CommonService, CompareService) {
+  .controller('CompareDetailsCtrl', function ($scope, $stateParams, CommonService, CompareService) {
 
-    //.获取考霸代言的机构信息
-    CompareService.getMasterAttentionList({
+    // 获取比较的2个课程的详情
+    CompareService.getTrainDetailInfo({
       inputJson: {
-        "MasterId": 1, //考霸ID，必须传入
+        "ItemID": $stateParams.itemid1, //接口138的班级ID，该值必须传入
+        "ItemID2": $stateParams.itemid2, //接口138的培训ID，该值必须传入
+      },
+      praviteKey: 'oiox3tmqu1sn56x7occdd'
+    }).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.detailInfo=data.Data;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
+    //获取班级对应的代言考霸列表信息
+    CompareService.getTopMasterClassList({
+      inputJson: {
+        "TrainClassID":1, //班级ID，必须传入，接口138返回
       },
       praviteKey: 'oiox3tmqu1sn56x7occdd'
     }).success(function (data) {
