@@ -118,7 +118,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'SignInCtrl'
       })
       .state('activitydetails', {//签到详情
-        url: '/activitydetails',
+        url: '/activitydetails/:content',
         templateUrl: 'html/signin/activitydetails.html',
         controller: 'ActivityDetailsCtrl'
       })

@@ -10,7 +10,8 @@
         <p style="color: #fff;">我的积分: <span style="font-size: 1.5rem;">{{signinInfo.SignALLNum}}</span> 个</p>
         <div ng-if="signinInfo.DaysNum" class="qian-dao-btn" ng-click="qianDao()"><p>已签到</p>
           <p><strong style="font-size: 1.2rem;">{{signinInfo.DaysNum}}</strong>天</p></div>
-        <div ng-if="!signinInfo.DaysNum" class="qian-dao-btn" ng-click="qianDao()"><p style="font-size: 0.8rem!important;">
+        <div ng-if="!signinInfo.DaysNum" class="qian-dao-btn" ng-click="qianDao()"><p
+          style="font-size: 0.8rem!important;">
           签到领积分</p>
           <p></div>
       </ion-item>
@@ -22,10 +23,13 @@
       <ion-item class="item-divider light-bg energized text-center">
         <i class="icon iconfont icon-favor" style="color: #f26604"></i> 签到 好礼相送
       </ion-item>
-      <img ui-sref="activitydetails" ng-src="img/signin/sign-goods.png" class="full-image" alt="签到商品图片">
-      <!--      <ion-item>
-
-            </ion-item>-->
+      <!--      <img ui-sref="activitydetails" ng-src="img/signin/sign-goods.png" class="full-image" alt="签到商品图片">-->
+      <ion-item ui-sref="activitydetails({content:item.AdvertisingContent})" class="item-avatar-left item-icon-right" ng-repeat="item in adList">
+        <img ng-src="{{item.AdPicture}}" alt="活动">
+        <h2>{{item.AdvertisingName}}</h2>
+        <p ng-bind-html="item.AdvertisingContent"></p>
+        <i class="icon ion-ios-arrow-right grey"></i>
+      </ion-item>
 
     </ion-list>
   </ion-content>

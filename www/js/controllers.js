@@ -200,8 +200,8 @@ angular.module('starter.controllers', [])
 
   })
   //签到详情
-  .controller('ActivityDetailsCtrl', function ($scope, CommonService, SigninService) {
-
+  .controller('ActivityDetailsCtrl', function ($scope,$stateParams, CommonService, SigninService) {
+    $scope.content=$stateParams.content;
   })
   //比较页面
   .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {

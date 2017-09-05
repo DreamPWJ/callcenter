@@ -248,7 +248,7 @@ angular.module('starter.services', [])
         var promise = deferred.promise
         promise = $http({
           method: 'GET',
-          url: CallCenter.api + "/getHFOrganAdList",
+          url: CallCenter.api + "/GetHFOrganAdList",
           params: params
         }).success(function (data) {
           deferred.resolve(data);// 声明执行成功，即http请求数据成功，可以返回数据了
