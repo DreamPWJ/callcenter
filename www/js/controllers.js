@@ -63,18 +63,21 @@ angular.module('starter.controllers', [])
   })
   //签到页面
   .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup, CommonService, SigninService) {
-    //获取签到记录
-    /*    SigninService.getSignin({
-          userId: "48156",//用户id
-          tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
-        }).success(function (data) {
-          console.log(data);
-          if (data.StatusCode == 0) {
-            $scope.signinInfo = data.Data;
-          } else {
-            CommonService.platformPrompt(data.Msg, "close");
-          }
-        })*/
+    $scope.getSignin = function () {
+      //获取签到记录
+      SigninService.getSignin({
+        userId: "48156",//用户id
+        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+      }).success(function (data) {
+        console.log(data);
+        if (data.StatusCode == 0) {
+          $scope.signinInfo = data.Data;
+        } else {
+          CommonService.platformPrompt(data.Msg, "close");
+        }
+      })
+    }
+    $scope.getSignin();
     //签到头条
     SigninService.getSigninHeadLines({
       praviteKey: 'oiox3tmqu1sn56x7occdd'
@@ -87,30 +90,28 @@ angular.module('starter.controllers', [])
       }
     })
     // 返回广告列表
-    /*    SigninService.getHFOrganAdList({
-          praviteKey: 'oiox3tmqu1sn56x7occdd'
-        }).success(function (data) {
-          console.log(data);
-          if (data.StatusCode == 0) {
-            $scope.adList = data.Data;
-          } else {
-            CommonService.platformPrompt(data.Msg, "close");
-          }
-        })*/
+    SigninService.getHFOrganAdList({
+      praviteKey: 'oiox3tmqu1sn56x7occdd'
+    }).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.adList = data.Data;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
 
     //点击签到
     $scope.qianDao = function () {
       //签到
-      SigninService.signin({
-        inputJson: {
-          "SignTypeId": "1",	//签到类型ID,0就返回当前最新积分，1表示每日签到，2表示参加模拟答题。现在后台系统默认签到+5，参加答题+10
-        },
+      SigninService.setSignin({
         userId: "48156",//用户id
         tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
           $scope.sign = data.Data;
+          $scope.getSignin();
         } else {
           CommonService.platformPrompt(data.Msg, "close");
         }
@@ -290,7 +291,7 @@ angular.module('starter.controllers', [])
     }).success(function (data) {
       console.log(data);
       if (data.StatusCode == 0) {
-        $scope.detailInfo=data.Data;
+        $scope.detailInfo = data.Data;
       } else {
         CommonService.platformPrompt(data.Msg, "close");
       }
@@ -298,7 +299,7 @@ angular.module('starter.controllers', [])
     //获取班级对应的代言考霸列表信息
     CompareService.getTopMasterClassList({
       inputJson: {
-        "TrainClassID":1, //班级ID，必须传入，接口138返回
+        "TrainClassID": 1, //班级ID，必须传入，接口138返回
       },
       praviteKey: 'oiox3tmqu1sn56x7occdd'
     }).success(function (data) {
