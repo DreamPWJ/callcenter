@@ -31,11 +31,12 @@
           <h4>{{detailInfo.ClassMoney1}}</h4>
           <!--          <p class="nowrap">减现后15.91万</p>-->
         </div>
-        <div class="list">
-          <div class="item item-divider">{{detailInfo.ClassName1}}代言考霸</div>
-          <div class="item item-avatar-left" ng-repeat="item in masterInfo1">
+        <div class="list kao-ba">
+          <div class="item item-divider">{{detailInfo.ClassName1}}考霸</div>
+          <div class="item item-avatar-left item-icon-right" ng-repeat="item in masterInfo1">
             <img ng-src="{{item.UserIcon}}" alt="头像">
             <h2 class="padding-top"> {{item.Name}}</h2>
+            <i class="icon iconfont  icon-add  " ng-click="attentio(item.MasterId)"></i>
           </div>
         </div>
 
@@ -48,12 +49,12 @@
           <h4>{{detailInfo.ClassMoney2}}</h4>
           <!--          <p class="nowrap">减现后16.60万</p>-->
         </div>
-        <div class="list">
-          <div class="item item-divider">{{detailInfo.ClassName2}}代言考霸</div>
-          <div class="item item-avatar-left" ng-repeat="item in masterInfo2">
+        <div class="list kao-ba">
+          <div class="item item-divider">{{detailInfo.ClassName2}}考霸</div>
+          <div class="item item-avatar-left item-icon-right " ng-repeat="item in masterInfo2">
             <img ng-src="{{item.UserIcon}}" alt="头像">
             <h2 class="padding-top"> {{item.Name}}</h2>
-
+            <i class="icon iconfont  icon-add  " ng-click="attentio(item.MasterId)"></i>
           </div>
         </div>
       </div>
