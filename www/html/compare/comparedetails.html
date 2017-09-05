@@ -6,69 +6,63 @@
     <h1 class="title ">班级对比</h1>
   </ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear"  ui-sref="parametersdetails">参数对比</button>
+    <button class="button button-clear" ng-click="parametersdetails()">详情对比</button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="false" id="comparedetails" >
+  <ion-content overflow-scroll="false" id="comparedetails">
     <div class="row row-horizontal-around row-no-padding row-center  text-center light-bg compare-header">
       <div class="col-45 card">
-        <img ng-src="img/compare/car.jpg" alt="图片">
-        <h4>英语四级基础班</h4>
-        <p class="grey nowrap">新东方</p>
+        <img ng-src="{{detailInfo.OrganLog1}}" alt="图片">
+        <h4>{{detailInfo.ClassName1}}</h4>
+        <p class="grey nowrap">{{detailInfo.OrganName1}}</p>
       </div>
       <h3>PK</h3>
       <div class="col-45 card">
-        <img ng-src="img/compare/car.jpg" alt="图片">
-        <h4>英语四级基础班</h4>
-        <p class="grey nowrap">文都教育</p>
+        <img ng-src="{{detailInfo.OrganLog2}}g" alt="图片">
+        <h4>{{detailInfo.ClassName2}}</h4>
+        <p class="grey nowrap">{{detailInfo.OrganName2}}</p>
       </div>
 
     </div>
-    <h5 class="text-center">报名预算</h5>
+    <h5 class="text-center">报名费用</h5>
     <div class="row row-horizontal-around row-no-padding row-center  text-center light-bg compare-price">
       <div class="col-50 ">
         <div class="circle first">
-          <h5>全款参考</h5>
-          <h4>17.69万</h4>
-          <p class="nowrap">减现后15.91万</p>
+          <h5>报名费</h5>
+          <h4>{{detailInfo.ClassMoney1}}</h4>
+          <!--          <p class="nowrap">减现后15.91万</p>-->
         </div>
         <div class="list">
-          <div class="item">
-            代言本机构的考霸列表
-          </div>
-          <div class="item">
-            代言本机构的考霸列表
-          </div>
-          <div class="item">
-            代言本机构的考霸列表
+          <div class="item item-divider">{{detailInfo.ClassName1}}代言考霸</div>
+          <div class="item item-avatar-left" ng-repeat="item in masterInfo1">
+            <img ng-src="{{item.UserIcon}}" alt="头像">
+            <h2 class="padding-top"> {{item.Name}}</h2>
           </div>
         </div>
 
-<!--        <button class="button button-energized">询底价</button>-->
+        <!--        <button class="button button-energized">询底价</button>-->
       </div>
+
       <div class="col-50 ">
         <div class="circle last">
-          <h5>全款参考</h5>
-          <h4>18.44万</h4>
-          <p class="nowrap">减现后16.60万</p>
+          <h5>报名费</h5>
+          <h4>{{detailInfo.ClassMoney2}}</h4>
+          <!--          <p class="nowrap">减现后16.60万</p>-->
         </div>
         <div class="list">
-          <div class="item">
-            代言本机构的考霸列表
-          </div>
-          <div class="item">
-            代言本机构的考霸列表
-          </div>
-          <div class="item">
-            代言本机构的考霸列表
+          <div class="item item-divider">{{detailInfo.ClassName2}}代言考霸</div>
+          <div class="item item-avatar-left" ng-repeat="item in masterInfo2">
+            <img ng-src="{{item.UserIcon}}" alt="头像">
+            <h2 class="padding-top"> {{item.Name}}</h2>
+
           </div>
         </div>
-        </div>
-<!--        <button class="button button-energized">询底价</button>-->
-        </div>
-    <div class="padding">
-      <p class="grey">考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明</p>
-    </div>
       </div>
+      <!--        <button class="button button-energized">询底价</button>-->
+    </div>
+    <div class="padding">
+      <!--      <p class="grey">考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明考霸列表文字说明</p>-->
+    </div>
+    </div>
     </div>
   </ion-content>
 

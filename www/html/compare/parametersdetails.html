@@ -3,49 +3,63 @@
     <button class="button button-clear icon ion-ios-arrow-left" nav-direction=back ng-click="$ionicGoBack()"></button>
   </ion-nav-buttons>
   <ion-nav-title>
-    <h1 class="title ">班级对比</h1>
+    <h1 class="title ">班级详情对比</h1>
   </ion-nav-title>
   <ion-nav-buttons side="right">
     <button class="button button-clear" ui-sref="comparedetails">综合对比</button>
   </ion-nav-buttons>
   <ion-content overflow-scroll="false" id="parametersdetails">
     <div class="row  row-no-padding row-center  text-center light-bg parametersdetails-header">
-      <span class="col-50 border-r">英语四级基础班 <p class="grey">新东方</p></span>
-      <span class="col-50 ">英语四级基础班 <p class="grey">文都教育</p></span>
+      <span class="col-50 border-r h4">{{detailInfo.ClassName1}} <p class="grey">{{detailInfo.OrganName1}}</p></span>
+      <span class="col-50 h4">{{detailInfo.ClassName2}} <p class="grey">{{detailInfo.OrganName2}}</p></span>
     </div>
-    <p class="stable-bg padding" style="margin-bottom: 0;">基本参数</p>
+    <p class="stable-bg padding" style="margin-bottom: 0;">基本详情</p>
     <div class="text-center light-bg parametersdetails-body">
       <div class="row row-no-padding border-b">
-        <span class="col-25  stable-bg">参考价(元)</span>
-        <span class="col-30 border-r assertive">15.91万起</span>
-        <span class="col-30 border-r assertive">16.60万起</span>
+        <span class="col-25  stable-bg">课程目标</span>
+        <span class="col border-r energized">{{detailInfo.ClassTarget1}}</span>
+        <span class="col border-r energized">{{detailInfo.ClassTarget2}}</span>
       </div>
       <div class="row row-no-padding border-b">
-        <span class="col-25  stable-bg">参考价(元)</span>
-        <span class="col-30 border-r assertive">15.91万起</span>
-        <span class="col-30 border-r assertive">16.60万起</span>
+        <span class="col-25  stable-bg">课程对象</span>
+        <span class="col border-r energized">{{detailInfo.ClassStudent1}}</span>
+        <span class="col border-r energized">{{detailInfo.ClassStudent2}}</span>
       </div>
       <div class="row row-no-padding border-b">
-        <span class="col-25  stable-bg">参考价(元)</span>
-        <span class="col-30 border-r assertive">15.91万起</span>
-        <span class="col-30 border-r assertive">16.60万起</span>
+        <span class="col-25  stable-bg">课程内容</span>
+        <span class="col border-r energized">{{detailInfo.ClassContent1}}</span>
+        <span class="col border-r energized">{{detailInfo.ClassContent2}}</span>
       </div>
       <div class="row row-no-padding border-b">
-        <span class="col-25  stable-bg">参考价(元)</span>
-        <span class="col-30 border-r assertive">15.91万起</span>
-        <span class="col-30 border-r assertive">16.60万起</span>
+        <span class="col-25  stable-bg">课程特色</span>
+        <span class="col border-r energized">{{detailInfo.CourseFeatures1}}</span>
+        <span class="col border-r energized">{{detailInfo.CourseFeatures2}}</span>
       </div>
       <div class="row row-no-padding border-b">
-        <span class="col-25  stable-bg">参考价(元)</span>
-        <span class="col-30 border-r assertive">15.91万起</span>
-        <span class="col-30 border-r assertive">16.60万起</span>
+        <span class="col-25  stable-bg">课程规律</span>
+        <span class="col border-r energized">{{detailInfo.CourseRule1}}</span>
+        <span class="col border-r energized">{{detailInfo.CourseRule2}}</span>
       </div>
-
-<!--      <div class="row row-no-padding apply">
-        <span class="col-25  "></span>
-        <button class="button button-energized col-25 ">报名</button>
-        <button class="button button-energized col-25 ">报名</button>
-      </div>-->
+      <div class="row row-no-padding border-b">
+        <span class="col-25  stable-bg">课程老师</span>
+        <span class="col border-r energized">{{detailInfo.ClassTeacherName1}}</span>
+        <span class="col border-r energized">{{detailInfo.ClassTeacherName2}}</span>
+      </div>
+      <div class="row row-no-padding border-b">
+        <span class="col-25  stable-bg">教师背景</span>
+        <span class="col border-r energized">{{detailInfo.TeacherBackground1}}</span>
+        <span class="col border-r energized">{{detailInfo.TeacherBackground2}}</span>
+      </div>
+      <div class="row row-no-padding border-b">
+        <span class="col-25  stable-bg">教学理念</span>
+        <span class="col border-r energized">{{detailInfo.TeacherIdea1}}</span>
+        <span class="col border-r energized">{{detailInfo.TeacherIdea2}}</span>
+      </div>
+      <!--      <div class="row row-no-padding apply">
+              <span class="col-25  "></span>
+              <button class="button button-energized col-25 ">报名</button>
+              <button class="button button-energized col-25 ">报名</button>
+            </div>-->
     </div>
   </ion-content>
 

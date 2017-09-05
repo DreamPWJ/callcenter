@@ -503,7 +503,7 @@ a {
 
 #comparedetails .compare-price .circle {
   margin: 0.6rem auto;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   width: 7.8rem;
   height: 7.8rem;
   border-radius: 50%;
@@ -535,7 +535,7 @@ a {
 }
 
 #parametersdetails .parametersdetails-header span {
-  padding: 2rem 0.1rem;
+  padding: 0.8rem 0.1rem;
 }
 
 #parametersdetails .parametersdetails-body span {

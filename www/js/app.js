@@ -134,7 +134,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'CompareDetailsCtrl'
       })
       .state('parametersdetails', {//参数对比
-        url: '/parametersdetails',
+        url: '/parametersdetails/:item',
         templateUrl: 'html/compare/parametersdetails.html',
         controller: 'ParametersDetailsCtrl'
       })

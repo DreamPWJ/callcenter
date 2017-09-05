@@ -200,8 +200,8 @@ angular.module('starter.controllers', [])
 
   })
   //签到详情
-  .controller('ActivityDetailsCtrl', function ($scope,$stateParams, CommonService, SigninService) {
-    $scope.content=$stateParams.content;
+  .controller('ActivityDetailsCtrl', function ($scope, $stateParams, CommonService, SigninService) {
+    $scope.content = $stateParams.content;
   })
   //比较页面
   .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
@@ -279,7 +279,7 @@ angular.module('starter.controllers', [])
     }
   })
   //综合对比
-  .controller('CompareDetailsCtrl', function ($scope, $stateParams, CommonService, CompareService) {
+  .controller('CompareDetailsCtrl', function ($scope, $stateParams, $state, CommonService, CompareService) {
 
     // 获取比较的2个课程的详情
     CompareService.getTrainDetailInfo({
@@ -296,22 +296,41 @@ angular.module('starter.controllers', [])
         CommonService.platformPrompt(data.Msg, "close");
       }
     })
-    //获取班级对应的代言考霸列表信息
+    //获取班级对应的代言考霸列表信息1
     CompareService.getTopMasterClassList({
       inputJson: {
-        "TrainClassID": 1, //班级ID，必须传入，接口138返回
+        "TrainClassID": $stateParams.itemid1, //班级ID，必须传入，接口138返回
       },
       praviteKey: 'oiox3tmqu1sn56x7occdd'
     }).success(function (data) {
       console.log(data);
       if (data.StatusCode == 0) {
-        $scope.masterInfo = data.Data;
+        $scope.masterInfo1 = data.Data;
       } else {
         CommonService.platformPrompt(data.Msg, "close");
       }
     })
+    //获取班级对应的代言考霸列表信息2
+    CompareService.getTopMasterClassList({
+      inputJson: {
+        "TrainClassID": $stateParams.itemid2, //班级ID，必须传入，接口138返回
+      },
+      praviteKey: 'oiox3tmqu1sn56x7occdd'
+    }).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.masterInfo2 = data.Data;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
+
+    //详情参数
+    $scope.parametersdetails = function () {
+      $state.go("parametersdetails", {item: JSON.stringify($scope.detailInfo)})
+    }
   })
   //参数对比
-  .controller('ParametersDetailsCtrl', function ($scope, CommonService, CompareService) {
-
+  .controller('ParametersDetailsCtrl', function ($scope, $stateParams, CommonService, CompareService) {
+    $scope.detailInfo = JSON.parse($stateParams.item);
   })
