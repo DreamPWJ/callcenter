@@ -330,11 +330,11 @@ angular.module('starter.controllers', [])
       CompareService.setFollowExam({
         inputJson: {
           "NoticeType": 4, //公告类型，1表示考试，2表示活动，3表示培训，4表示考霸关注，5表示考霸代言机构， 如果不传该参数系统默认是考试类型关注
-          "ExamTypeId": "", //考试类型ID号，当类型是1或者无的时候必传
-          "ActiveId": "", //表示活动ID，类型是 2的时候必传
-          "TrainTypeId": "",  //表示培训类型ID，类型是3的时候必传
+          "ExamTypeId": 0, //考试类型ID号，当类型是1或者无的时候必传
+          "ActiveId": 0, //表示活动ID，类型是 2的时候必传
+          "TrainTypeId": 0,  //表示培训类型ID，类型是3的时候必传
           "MasterId": MasterId,  //考霸ID，类型4的时候必传
-          "OrganID": "",  //机构ID，类型5的时候必传
+          "OrganID": 0,  //机构ID，类型5的时候必传
           "IsFollow": 1  //0表示取消关注或取消代言，1表示开启关注或者代言
         },
         userId: "48156",//用户id
