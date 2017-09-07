@@ -63,11 +63,13 @@ angular.module('starter.controllers', [])
   })
   //签到页面
   .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup, CommonService, SigninService) {
+    var userId = CommonService.getQueryString(window.location, "userId");
+    var tokenInfo = CommonService.getQueryString(window.location, "tokenInfo");
     $scope.getSignin = function () {
       //获取签到记录
       SigninService.getSignin({
-        userId: "48156",//用户id
-        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+        userId:userId|| "48156",//用户id
+        tokenInfo:tokenInfo|| "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
@@ -105,8 +107,8 @@ angular.module('starter.controllers', [])
     $scope.qianDao = function () {
       //签到
       SigninService.setSignin({
-        userId: "48156",//用户id
-        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+        userId:userId|| "48156",//用户id
+        tokenInfo:tokenInfo|| "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
@@ -180,8 +182,8 @@ angular.module('starter.controllers', [])
                 inputJson: {
                   AutoKey: $scope.drawData[index].key, // 接口135返回的牌子key值
                 },
-                userId: "48156",//用户id
-                tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+                userId:userId|| "48156",//用户id
+                tokenInfo:tokenInfo|| "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
               }).success(function (data) {
                 console.log(data);
                 if (data.StatusCode == 0) {
@@ -280,7 +282,8 @@ angular.module('starter.controllers', [])
   })
   //综合对比
   .controller('CompareDetailsCtrl', function ($scope, $stateParams, $state, CommonService, CompareService) {
-
+    var userId = CommonService.getQueryString(window.location, "userId");
+    var tokenInfo = CommonService.getQueryString(window.location, "tokenInfo");
     // 获取比较的2个课程的详情
     CompareService.getTrainDetailInfo({
       inputJson: {
@@ -337,8 +340,8 @@ angular.module('starter.controllers', [])
           "OrganID": 0,  //机构ID，类型5的时候必传
           "IsFollow": 1  //0表示取消关注或取消代言，1表示开启关注或者代言
         },
-        userId: "48156",//用户id
-        tokenInfo: "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+        userId: userId||"48156",//用户id
+        tokenInfo:tokenInfo|| "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
