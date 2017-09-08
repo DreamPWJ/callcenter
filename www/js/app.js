@@ -92,7 +92,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     //产品列表
     $stateProvider
-      .state('index', {//客服首页
+      .state('index', {//首页
         url: '/index',
         templateUrl: 'html/index.html',
         controller: 'IndexCtrl'
@@ -110,7 +110,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       .state('aftersale', {//申请售后服务
         url: '/aftersale',
         templateUrl: 'html/callcenter/aftersale.html',
-        controller: ''
+        controller: 'AfterSaleCtrl'
       })
       .state('signin', {//签到首页
         url: '/signin',
