@@ -35,6 +35,11 @@ angular.module('starter.controllers', [])
         CommonService.platformPrompt(data.Msg, "close");
       }
     })
+
+    //h5原生APP返回
+    $scope.goBack = function () {
+      CommonService.goBack()
+    }
   })
 
   //详情页面
@@ -68,8 +73,8 @@ angular.module('starter.controllers', [])
     $scope.getSignin = function () {
       //获取签到记录
       SigninService.getSignin({
-        userId:userId|| "48156",//用户id
-        tokenInfo:tokenInfo|| "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+        userId: userId || "48156",//用户id
+        tokenInfo: tokenInfo || "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
@@ -107,8 +112,8 @@ angular.module('starter.controllers', [])
     $scope.qianDao = function () {
       //签到
       SigninService.setSignin({
-        userId:userId|| "48156",//用户id
-        tokenInfo:tokenInfo|| "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+        userId: userId || "48156",//用户id
+        tokenInfo: tokenInfo || "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
@@ -182,8 +187,8 @@ angular.module('starter.controllers', [])
                 inputJson: {
                   AutoKey: $scope.drawData[index].key, // 接口135返回的牌子key值
                 },
-                userId:userId|| "48156",//用户id
-                tokenInfo:tokenInfo|| "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+                userId: userId || "48156",//用户id
+                tokenInfo: tokenInfo || "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
               }).success(function (data) {
                 console.log(data);
                 if (data.StatusCode == 0) {
@@ -199,7 +204,10 @@ angular.module('starter.controllers', [])
 
 
     }
-
+    //h5原生APP返回
+    $scope.goBack = function () {
+      CommonService.goBack()
+    }
   })
   //签到详情
   .controller('ActivityDetailsCtrl', function ($scope, $stateParams, CommonService, SigninService) {
@@ -279,6 +287,10 @@ angular.module('starter.controllers', [])
       })
       $state.go('comparedetails', {itemid1: items[0], itemid2: items[1]})
     }
+    //h5原生APP返回
+    $scope.goBack = function () {
+      CommonService.goBack()
+    }
   })
   //综合对比
   .controller('CompareDetailsCtrl', function ($scope, $stateParams, $state, CommonService, CompareService) {
@@ -340,8 +352,8 @@ angular.module('starter.controllers', [])
           "OrganID": 0,  //机构ID，类型5的时候必传
           "IsFollow": 1  //0表示取消关注或取消代言，1表示开启关注或者代言
         },
-        userId: userId||"48156",//用户id
-        tokenInfo:tokenInfo|| "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
+        userId: userId || "48156",//用户id
+        tokenInfo: tokenInfo || "5fb0ad26-cc07-4bf5-9671-2811e1f09034" //用户token
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {

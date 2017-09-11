@@ -137,6 +137,17 @@ angular.module('starter.services', [])
         var r = url.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]);
         return null;
+      },
+      goBack: function () { //h5原生APP返回
+        if (ionic.Platform.is('ios')) {
+          try {
+            ios.goBack();
+          } catch (e) {
+            $ionicHistory.goBack();
+          }
+        } else {
+          $ionicHistory.goBack();
+        }
       }
     }
 
@@ -375,8 +386,8 @@ angular.module('starter.services', [])
         $http({
           method: 'GET',
           url: CallCenter.api + "/GetAllTrainClassList",
-          params:{
-           praviteKey: 'oiox3tmqu1sn56x7occdd'
+          params: {
+            praviteKey: 'oiox3tmqu1sn56x7occdd'
           },
           cache: true
         }).success(function (data) {

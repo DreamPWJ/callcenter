@@ -1,7 +1,7 @@
 <ion-view>
   <ion-nav-buttons side="left">
     <button ng-if="!compare.isEdit" class="button button-clear icon ion-ios-arrow-left" nav-direction=back
-            ng-click="$ionicGoBack()"></button>
+            ng-click="goBack()"></button>
     <button ng-if="compare.isEdit" class="button button-clear " ng-click="editCancel()">取消</button>
   </ion-nav-buttons>
   <ion-nav-title>

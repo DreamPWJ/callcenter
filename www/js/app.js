@@ -102,7 +102,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'html/callcenter/main.html',
         controller: 'MainCtrl'
       })
-      .state('details', {//客服首页
+      .state('details', {//客服详情
         url: '/details/:type/:id',
         templateUrl: 'html/callcenter/details.html',
         controller: 'DetailsCtrl'
