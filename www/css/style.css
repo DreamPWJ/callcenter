@@ -578,6 +578,11 @@ input[disabled], input[readonly]:not(.cloned-text-input), select[disabled], sele
   cursor: not-allowed;
 }
 
+/*  ios导航bar状态栏处理*/
+.platform-ios .nav-bar-container {
+  margin-top: 20px;
+}
+
 .tool-tip {
   position: fixed;
   z-index: 10000;
