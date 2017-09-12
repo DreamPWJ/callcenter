@@ -9,8 +9,8 @@
           <div class="input-label">机构类型</div>
           <select>
             <option>机构类型1</option>
-            <option>机构类型1</option>
-            <option>机构类型1</option>
+            <option>机构类型2</option>
+            <option>机构类型3</option>
           </select>
         </label>
         <p></p>
@@ -34,23 +34,23 @@
           <input type="text" placeholder="授课及服务地址">
         </label>
         <p></p>
-        <label class="item item-input ">
+        <div class="item item-input ">
           <span class="input-label"> 培训收费 </span>
           <div class="row " style="width: 70%!important;">
-            <input type="number" class="col " placeholder="培训费">
-            <span class="col-15 text-center" style="line-height:34px; ">--</span>
-            <input type="number" class="col " placeholder="培训费">
+            <input type="number" class="col-33 " placeholder="培训费">
+            <span class="padding-horizontal text-center" style="line-height:34px; ">--</span>
+            <input type="number" class="col-33 text-center " placeholder=" 培训费">
           </div>
-        </label>
+        </div>
         <p></p>
-        <label class="item item-input ">
+        <div class="item item-input ">
           <span class="input-label"> 佣金提成比例 </span>
           <div class="row " style="width: 70%!important;">
-            <input type="number" class="col " placeholder="0%">
-            <span class="col-15 text-center" style="line-height:34px; ">金额</span>
-            <input type="number" class="col text-right" placeholder="金额(二选一)">
+            <input type="number" class="col-33 " placeholder="0%">
+            <span class="padding-horizontal text-center" style="line-height:34px; ">金额</span>
+            <input type="number" class="col-33 text-center" placeholder=" 二选一">
           </div>
-        </label>
+        </div>
         <p></p>
         <label class="item item-input ">
           <span class="input-label"> 业务联络人</span>
@@ -68,10 +68,10 @@
         </label>
 
       </div>
-
+      <p class="padding-top"></p>
     </ion-content>
     <div class="padding light-bg bottom-0" keyboard-attach>
-      <button ng-disabled="institutionsinForm.$valid" class="button button-energized full-image "
+      <button ng-disabled="!institutionsinForm.$valid" class="button button-energized full-image "
               ng-click="">
         提交入驻
       </button>

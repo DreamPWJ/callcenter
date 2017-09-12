@@ -52,13 +52,11 @@
           <span class="input-label"> 管家留言</span>
           <textarea class="col-60" rows="3" placeholder="请输入管家留言内容"></textarea>
         </label>
-
-
       </div>
-
+      <p class="padding-top"></p>
     </ion-content>
     <div class="padding light-bg bottom-0" keyboard-attach>
-      <button ng-disabled="aftersaleForm.$valid" class="button button-energized full-image "
+      <button ng-disabled="!aftersaleForm.$valid" class="button button-energized full-image "
               ng-click="">
         提交申请
       </button>
