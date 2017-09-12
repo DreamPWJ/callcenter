@@ -66,6 +66,18 @@ angular.module('starter.controllers', [])
   .controller('AfterSaleCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
 
   })
+  //管家使用指南
+  .controller('ButlerListCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
+
+  })
+  //管家使用指南详情
+  .controller('ButlerListDetailsCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
+
+  })
+  //培训机构入驻
+  .controller('InstitutionsInCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
+
+  })
   //签到页面
   .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup, CommonService, SigninService) {
     var userId = CommonService.getQueryString(window.location, "userId");

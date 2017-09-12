@@ -112,6 +112,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'html/callcenter/aftersale.html',
         controller: 'AfterSaleCtrl'
       })
+      .state('butlerlist', {//管家使用指南
+        url: '/butlerlist',
+        templateUrl: 'html/callcenter/butlerlist.html',
+        controller: 'ButlerListCtrl'
+      })
+      .state('butlerlistdetails', {//管家使用指南详情
+        url: '/butlerlistdetails',
+        templateUrl: 'html/callcenter/butlerlistdetails.html',
+        controller: 'ButlerListDetailsCtrl'
+      })
+      .state('institutionsin', {//培训机构入驻
+        url: '/institutionsin',
+        templateUrl: 'html/callcenter/institutionsin.html',
+        controller: 'InstitutionsInCtrl'
+      })
       .state('signin', {//签到首页
         url: '/signin',
         templateUrl: 'html/signin/signin.html',
@@ -129,7 +144,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       })
       .state('comparedetails', {//综合对比
         url: '/comparedetails/:itemid1/:itemid2',
-        cache:false,
+        cache: false,
         templateUrl: 'html/compare/comparedetails.html',
         controller: 'CompareDetailsCtrl'
       })

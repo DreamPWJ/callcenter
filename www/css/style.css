@@ -140,6 +140,8 @@ a {
 }
 
 .main-list .col p > i {
+  display: inline-block;
+  margin-top: -1px!important;
   color: #ffffff;
   font-size: 1rem;
 }
