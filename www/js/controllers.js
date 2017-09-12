@@ -79,7 +79,7 @@ angular.module('starter.controllers', [])
 
   })
   //签到页面
-  .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup,$location, CommonService, SigninService) {
+  .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup, $location, CommonService, SigninService) {
     var userId = $location.search()['userId'];
     var tokenInfo = $location.search()['tokenInfo'];
     $scope.getSignin = function () {
@@ -122,6 +122,10 @@ angular.module('starter.controllers', [])
 
     //点击签到
     $scope.qianDao = function () {
+      if ($scope.signinInfo.IsSign == 1) {
+        CommonService.platformPrompt("今天已签到", "close");
+        return;
+      }
       //签到
       SigninService.setSignin({
         userId: userId || "48156",//用户id
@@ -178,20 +182,6 @@ angular.module('starter.controllers', [])
         }
       }).then(function () {
           window.setTimeout(function () {
-              /*            $scope.drawData = [{
-                            key: 'a', value: "积分2个", icon: "icon-favorfill", img: ""
-                          },
-                            {key: 'b', value: "谢谢参与", icon: "icon-emoji", img: ""},
-                            {
-                              key: 'c', value: "积分1个", icon: "icon-favorfill", img: ""
-                            }, {
-                              key: 'd', value: "新东方￥50", icon: "icon-moneybagfill", img: ""
-                            }, {
-                              key: 'e', value: "积分5个", icon: "icon-favorfill", img: ""
-                            }, {
-                              key: 'f', value: "新东方￥60", icon: "icon-moneybagfill", img: ""
-                            }
-                          ];*/
               $scope.drawData[index].checked = true;
               $scope.$apply();
               // 提交翻牌子的信息
@@ -305,7 +295,7 @@ angular.module('starter.controllers', [])
     }
   })
   //综合对比
-  .controller('CompareDetailsCtrl', function ($scope, $stateParams, $state,$location, CommonService, CompareService) {
+  .controller('CompareDetailsCtrl', function ($scope, $stateParams, $state, $location, CommonService, CompareService) {
     var userId = $location.search()['userId'];
     var tokenInfo = $location.search()['tokenInfo'];
     // 获取比较的2个课程的详情
