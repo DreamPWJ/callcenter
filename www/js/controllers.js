@@ -79,9 +79,9 @@ angular.module('starter.controllers', [])
 
   })
   //签到页面
-  .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup, CommonService, SigninService) {
-    var userId = CommonService.getQueryString(window.location, "userId");
-    var tokenInfo = CommonService.getQueryString(window.location, "tokenInfo");
+  .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup,$location, CommonService, SigninService) {
+    var userId = $location.search()['userId'];
+    var tokenInfo = $location.search()['tokenInfo'];
     $scope.getSignin = function () {
       //获取签到记录
       SigninService.getSignin({
@@ -305,9 +305,9 @@ angular.module('starter.controllers', [])
     }
   })
   //综合对比
-  .controller('CompareDetailsCtrl', function ($scope, $stateParams, $state, CommonService, CompareService) {
-    var userId = CommonService.getQueryString(window.location, "userId");
-    var tokenInfo = CommonService.getQueryString(window.location, "tokenInfo");
+  .controller('CompareDetailsCtrl', function ($scope, $stateParams, $state,$location, CommonService, CompareService) {
+    var userId = $location.search()['userId'];
+    var tokenInfo = $location.search()['tokenInfo'];
     // 获取比较的2个课程的详情
     CompareService.getTrainDetailInfo({
       inputJson: {

@@ -349,6 +349,7 @@ a {
 
 #indexs-bar {
   position: fixed;
+  top: 64px;
   right: 0;
   bottom: 0;
   padding-top: 15px;
@@ -579,8 +580,20 @@ input[disabled], input[readonly]:not(.cloned-text-input), select[disabled], sele
 }
 
 /*  ios导航bar状态栏处理*/
-.platform-ios .nav-bar-container {
+.platform-ios .bar-header:not(.bar-subheader) {
+  height: 64px;
+}
+
+.platform-ios .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
+  margin-top: 19px !important;
+}
+
+.platform-ios .bar-header:not(.bar-subheader) > * {
   margin-top: 20px;
+}
+
+.platform-ios ion-content {
+  margin-top: 19px;
 }
 
 .tool-tip {

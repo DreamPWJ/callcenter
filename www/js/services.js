@@ -132,12 +132,6 @@ angular.module('starter.services', [])
           _self.type = null;
         }, 3000);
       },
-      getQueryString: function (url, name) { // 通过key获取url中的参数值
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        var r = url.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
-        return null;
-      },
       goBack: function () { //h5原生APP返回
         if (ionic.Platform.is('ios')) {
           try {
