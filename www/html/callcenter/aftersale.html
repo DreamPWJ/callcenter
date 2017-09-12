@@ -2,11 +2,67 @@
   <ion-nav-buttons side="left">
     <button class="button button-clear icon ion-ios-arrow-left" nav-direction=back ng-click="$ionicGoBack()"></button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="false" has-bouncing="true" id="aftersale" class="stable-bg">
-    <div ng-if="true" class="isNotDataHint">
-      <i class="iconfont icon-xiaoxi"></i>
-      <p>暂无售后服务信息</p>
+  <form name="aftersaleForm">
+    <ion-content overflow-scroll="false" class="has-button-footer stable-bg" id="aftersale" has-bouncing="true">
+
+      <div class="list list-borderless ">
+        <label class="item item-input item-select">
+          <div class="input-label">订单类型</div>
+          <select>
+            <option>考试订单</option>
+            <option>增值服务订单</option>
+            <option>培训订单</option>
+          </select>
+        </label>
+        <p></p>
+        <label class="item item-input item-select">
+          <div class="input-label">售后内容</div>
+          <select>
+            <option>申请修改信息</option>
+            <option>申请运费</option>
+            <option>申请服务延后</option>
+          </select>
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 申请人</span>
+          <input type="text" placeholder="请输入真实姓名">
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 手机号码 </span>
+          <input type="number" placeholder="请输入真实手机号码">
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> QQ </span>
+          <input type="number" placeholder="请输入真实QQ">
+        </label>
+        <p></p>
+        <label class="item item-input item-select">
+          <div class="input-label">处理进程</div>
+          <select>
+            <option>未处理</option>
+            <option>处理中</option>
+            <option>已完结</option>
+          </select>
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 管家留言</span>
+          <textarea class="col-60" rows="3" placeholder="请输入管家留言内容"></textarea>
+        </label>
+
+
+      </div>
+
+    </ion-content>
+    <div class="padding light-bg bottom-0" keyboard-attach>
+      <button ng-disabled="aftersaleForm.$valid" class="button button-energized full-image "
+              ng-click="">
+        提交申请
+      </button>
     </div>
-  </ion-content>
+  </form>
 </ion-view>
 

@@ -2,10 +2,79 @@
   <ion-nav-buttons side="left">
     <button class="button button-clear icon ion-ios-arrow-left" nav-direction=back ng-click="$ionicGoBack()"></button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="false" has-bouncing="true" id="aftersale" class="stable-bg">
-    <div ng-if="true" class="isNotDataHint">
-      <i class="iconfont icon-xiaoxi"></i>
-      <p>暂无培训机构入驻</p>
+  <form name="institutionsinForm">
+    <ion-content overflow-scroll="false" class="has-button-footer stable-bg" id="institutionsin" has-bouncing="true">
+      <div class="list list-borderless ">
+        <label class="item item-input item-select">
+          <div class="input-label">机构类型</div>
+          <select>
+            <option>机构类型1</option>
+            <option>机构类型1</option>
+            <option>机构类型1</option>
+          </select>
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 机构名称</span>
+          <input type="text" placeholder="武汉永新优势教育有限公司">
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 机构简称</span>
+          <input type="text" placeholder="永新优势教育">
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 主打课程及服务</span>
+          <textarea class="col-60" rows="3" placeholder="主打课程及服务"></textarea>
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 授课及服务地址</span>
+          <input type="text" placeholder="授课及服务地址">
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 培训收费 </span>
+          <div class="row " style="width: 70%!important;">
+            <input type="number" class="col " placeholder="培训费">
+            <span class="col-15 text-center" style="line-height:34px; ">--</span>
+            <input type="number" class="col " placeholder="培训费">
+          </div>
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 佣金提成比例 </span>
+          <div class="row " style="width: 70%!important;">
+            <input type="number" class="col " placeholder="0%">
+            <span class="col-15 text-center" style="line-height:34px; ">金额</span>
+            <input type="number" class="col text-right" placeholder="金额(二选一)">
+          </div>
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 业务联络人</span>
+          <input type="text" placeholder="请输入业务联络人姓名">
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> 电话 </span>
+          <input type="number" placeholder="请输入真实电话">
+        </label>
+        <p></p>
+        <label class="item item-input ">
+          <span class="input-label"> QQ </span>
+          <input type="number" placeholder="请输入真实QQ">
+        </label>
+
+      </div>
+
+    </ion-content>
+    <div class="padding light-bg bottom-0" keyboard-attach>
+      <button ng-disabled="institutionsinForm.$valid" class="button button-energized full-image "
+              ng-click="">
+        提交入驻
+      </button>
     </div>
-  </ion-content>
+  </form>
 </ion-view>
