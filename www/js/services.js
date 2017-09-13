@@ -133,13 +133,15 @@ angular.module('starter.services', [])
         }, 3000);
       },
       goBack: function () { //h5原生APP返回
-        if (ionic.Platform.is('ios')) {
-          try {
+        try {
+          if (ionic.Platform.is('ios')) {
             ios.goBack();
-          } catch (e) {
+          } else if (ionic.Platform.is('android')) {
+            window.AndroidJSInterface.goback();
+          } else {
             $ionicHistory.goBack();
           }
-        } else {
+        } catch (e) {
           $ionicHistory.goBack();
         }
       }
