@@ -6,7 +6,7 @@
 
     <ion-list>
       <ion-item class="item-avatar-left item-energized light header">
-        <img ng-src="img/head.jpg" alt="头像">
+        <img ng-src="{{signinInfo.headImg||'img/head.jpg'}}" onerror="this.src='img/head.jpg'" alt="头像"/>
         <p style="color: #fff;">我的积分: <span style="font-size: 1.5rem;">{{signinInfo.SignALLNum}}</span> 个</p>
         <div ng-if="signinInfo.DaysNum" class="qian-dao-btn" ng-click="qianDao()"><p>已签到</p>
           <p><strong style="font-size: 1.2rem;">{{signinInfo.DaysNum}}</strong>天</p></div>
@@ -17,7 +17,7 @@
       </ion-item>
       <marquee id="affiche" align="left" behavior="scroll" bgcolor="#fff" direction="up" height="46" width="100%"
                hspace="0"
-               vspace="0" loop="-1" scrollamount="20" scrolldelay="600" onMouseOut="this.start()"
+               vspace="0" loop="-1" scrollamount="2" scrolldelay="0" onMouseOut="this.start()"
                onMouseOver="this.stop()">
         <a ng-repeat="item in signinHead" href="{{item.NewsUrl}}" class="item item-icon-left item-borderless text-wrap">
           <i class="icon iconfont icon-notification" style="font-size: 1.5rem;color: #f26604;"></i>
