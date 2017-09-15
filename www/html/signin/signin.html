@@ -15,16 +15,32 @@
           签到领积分</p>
           <p></div>
       </ion-item>
-      <a href="{{signinHead[signinHead.length-1].NewsUrl}}" class="item item-icon-left">
-        <i class="icon iconfont icon-notification" style="font-size: 1.5rem;color: #f26604;"></i>
-        {{signinHead[signinHead.length-1].NewsTitle}}
-      </a>
+      <marquee id="affiche" align="left" behavior="scroll" bgcolor="#fff" direction="up" height="46" width="100%"
+               hspace="0"
+               vspace="0" loop="-1" scrollamount="20" scrolldelay="600" onMouseOut="this.start()"
+               onMouseOver="this.stop()">
+        <a ng-repeat="item in signinHead" href="{{item.NewsUrl}}" class="item item-icon-left">
+          <i class="icon iconfont icon-notification" style="font-size: 1.5rem;color: #f26604;"></i>
+          {{item.NewsTitle}}
+        </a>
+        <a class="item item-icon-left">
+          <i class="icon iconfont icon-notification" style="font-size: 1.5rem;color: #f26604;"></i>
+
+          王** 2017年9月13日 09:27 翻牌获得新东方现金红包1元，已存入账户
+        </a>
+        <a class="item item-icon-left">
+          <i class="icon iconfont icon-notification" style="font-size: 1.5rem;color: #f26604;"></i>
+
+          宋* 2017年9月13日 11:12 翻牌获得文都教育现金红包1.2元，已存入账户
+        </a>
+      </marquee>
       <p></p>
       <ion-item class="item-divider light-bg energized text-center">
         <i class="icon iconfont icon-favor" style="color: #f26604"></i> 签到 好礼相送
       </ion-item>
       <!--      <img ui-sref="activitydetails" ng-src="img/signin/sign-goods.png" class="full-image" alt="签到商品图片">-->
-      <ion-item ui-sref="activitydetails({content:item.AdvertisingContent})" class="item-avatar-left item-icon-right" ng-repeat="item in adList">
+      <ion-item ui-sref="activitydetails({content:item.AdvertisingContent})" class="item-avatar-left item-icon-right"
+                ng-repeat="item in adList">
         <img ng-src="{{item.AdPicture}}" alt="活动">
         <h2>{{item.AdvertisingName}}</h2>
         <p ng-bind-html="item.AdvertisingContent"></p>

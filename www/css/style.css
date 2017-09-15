@@ -218,7 +218,7 @@ a {
 
 /*修改覆盖弹出框默认样式*/
 .show-alert .popup, .show-confirm .popup {
-  width: 290px;
+  width: 90%;
   text-align: center !important;
 }
 
@@ -367,7 +367,7 @@ a {
   display: inline-block;;
   margin-bottom: 0.5rem;
   width: 90%;
-  height: 4.5rem;
+  height: 5rem;
 }
 
 .select-category .iconfont {
