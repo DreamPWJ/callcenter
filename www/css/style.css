@@ -70,6 +70,10 @@ a {
   white-space: nowrap;
 }
 
+.text-wrap {
+  white-space: normal !important;
+}
+
 .bottom-0 {
   position: fixed;
   width: 100%;
