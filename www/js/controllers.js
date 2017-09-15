@@ -123,7 +123,7 @@ angular.module('starter.controllers', [])
     //点击签到
     $scope.qianDao = function () {
       if ($scope.signinInfo.IsSign == 1) {
-        CommonService.platformPrompt("今天已签到", "close");
+        CommonService.platformPrompt("今天翻牌结果 : " + $scope.signinInfo.SignNum, "close");
         return;
       }
       //签到
