@@ -108,6 +108,17 @@ angular.module('starter.controllers', [])
         CommonService.platformPrompt(data.Msg, "close");
       }
     })
+    //获取当天抢到红包人员
+    SigninService.getStuSignInfoList({
+      praviteKey: 'oiox3tmqu1sn56x7occdd'
+    }).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.signinHongbao = data.Data;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
     // 返回广告列表
     SigninService.getHFOrganAdList({
       praviteKey: 'oiox3tmqu1sn56x7occdd'
