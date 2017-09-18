@@ -137,6 +137,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'html/signin/activitydetails.html',
         controller: 'ActivityDetailsCtrl'
       })
+      .state('planttrees', {//种树游戏
+        url: '/planttrees',
+        templateUrl: 'html/signin/planttrees.html',
+        controller: 'PlantTreesCtrl'
+      })
       .state('compare', {//对比首页
         url: '/compare',
         templateUrl: 'html/compare/compare.html',

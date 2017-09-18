@@ -226,6 +226,11 @@ angular.module('starter.controllers', [])
   .controller('ActivityDetailsCtrl', function ($scope, $stateParams, CommonService, SigninService) {
     $scope.content = $stateParams.content;
   })
+
+  //种树游戏
+  .controller('PlantTreesCtrl', function ($scope, CommonService, SigninService) {
+
+  })
   //比较页面
   .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {
     $scope.compare = {
