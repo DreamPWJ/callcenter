@@ -36,7 +36,6 @@
   position: absolute
 }
 
-
 .slogan {
   height: 134px;
   left: 50%;
@@ -112,7 +111,7 @@
 .water-wr {
   left: 50%;
   margin-left: -65px;
-  overflow: hidden;
+  /*  overflow: hidden;*/
   top: 136px;
   width: 79px;
   z-index: 100
@@ -171,12 +170,12 @@
 }
 
 .page.show {
-  opacity: 1!important;
+  opacity: 1 !important;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
-  z-index: 2!important;
+  z-index: 2 !important;
 }
 
 .bucket-wr .bucket {
@@ -233,9 +232,17 @@
   background: url(../img/t0180c14a91a97ae9e1.png) no-repeat center center;
   background-size: 100% 100%;
   left: 0;
-  top: -136px;
+  top: -30px;
   width: 100%;
-  z-index: 101
+  height: 300px;
+  z-index: 101;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .man.wet {

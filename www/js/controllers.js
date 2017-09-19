@@ -134,7 +134,7 @@ angular.module('starter.controllers', [])
     //点击签到
     $scope.qianDao = function () {
       if ($scope.signinInfo.IsSign == 1) {
-        CommonService.platformPrompt("今天翻牌结果 : " + $scope.signinInfo.SignNum, "close");
+        CommonService.platformPrompt("今日翻牌结果 : " + $scope.signinInfo.PlateNum, "close");
         return;
       }
       //签到
@@ -205,7 +205,7 @@ angular.module('starter.controllers', [])
               }).success(function (data) {
                 console.log(data);
                 if (data.StatusCode == 0) {
-
+                  $scope.getSignin();
                 } else {
                   CommonService.platformPrompt(data.Msg, "close");
                 }
@@ -229,7 +229,21 @@ angular.module('starter.controllers', [])
 
   //种树游戏
   .controller('PlantTreesCtrl', function ($scope, CommonService, SigninService) {
+    $scope.isShow = "start";//显示
+    //点击种树
+    $scope.plantTrees = function () {
+        $scope.isShow = 'game';
+      window.setTimeout(function () {
+        $scope.isShow = 'wet';
+        $scope.$apply();
+      }, 1000)
 
+    }
+    //点击浇水
+    /*    $scope.watering = function () {
+          $scope.isShow = 'wet';
+
+        }*/
   })
   //比较页面
   .controller('CompareCtrl', function ($scope, $state, CommonService, CompareService) {

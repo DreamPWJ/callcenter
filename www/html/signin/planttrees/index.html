@@ -1,5 +1,5 @@
 ﻿<div class="container">
-  <div class="start page">
+  <div class="start page {{isShow=='start'?'show':''}}">
     <div class="slogan">
       <p>快来！</p>
       <p>支援一下</p>
@@ -9,37 +9,37 @@
       <div class="ice-bundle"></div>
       <div class="waterlogging"></div>
     </div>
-    <div class="button-wr">
+    <div class="button-wr" ng-click="plantTrees()">
       <button id="begin"></button>
-      <div class="star bling"></div>
-      <div class="star bling"></div>
+      <!--      <div class="star bling"></div>
+            <div class="star bling"></div>-->
     </div>
-    <p class="tip">@三个好友，一起种树！</p>
+    <!--    <p class="tip">@三个好友，一起种树！</p>-->
   </div>
-  <div class="game page">
-    <div class="timer">
-      <span>51</span>
-    </div>
-    <div class="perf score">
-      <span>51</span>
-    </div>
-    <div class="hand">
-      <div class="water-wr">
-        <div class="water"></div>
+  <div class="game page {{isShow=='game'||isShow=='wet'?'show':''}}">
+    <!--    <div class="timer">
+          <span>51</span>
+        </div>
+        <div class="perf score">
+          <span>51</span>
+        </div>-->
+    <div class="hand {{isShow=='game'?'down':''}} ">
+      <div class="water-wr {{isShow=='game'?'down':'hide'}}">
+        <div class="water "></div>
       </div>
     </div>
-    <div class="man"></div>
-    <button id="pour"></button>
+    <div class="man {{isShow=='wet'?'wet':''}}"></div>
+    <!--    <button id="pour" ng-click="watering()"></button>-->
   </div>
-  <div class="end page">
-    <div class="result-plate">
-      <p class="result score">我居然浇了<span>34</span>桶水！！<br>不服来战！！！</p>
-      <div class="button-wr clearfix">
-        <button id="again"></button>
-        <button id="challenge"></button>
+  <!--  <div class="end page {{isShow=='end'?'show':''}}">
+      <div class="result-plate">
+        <p class="result score">我居然浇了<span>34</span>桶水！！<br>不服来战！！！</p>
+        <div class="button-wr clearfix">
+          <button id="again"></button>
+          <button id="challenge"></button>
+        </div>
       </div>
-    </div>
-  </div>
+    </div>-->
 
 </div>
 
