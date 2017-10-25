@@ -63,7 +63,50 @@ angular.module('starter.controllers', [])
 
   })
   //申请售后服务
-  .controller('AfterSaleCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
+  .controller('AfterSaleCtrl', function ($scope, $stateParams, CommonService, MainService) {
+    $scope.afterSale = {
+      OrderTypeId: '1',//订单类型
+      AfterSaleTypeId: '1',//售后内容
+      DisposeType: '0' //申请处理状态 默认是0，未处理
+    }
+
+    $scope.submitAfterSale = function () {
+      console.log($scope.afterSale);
+      //提交售后信息申请
+      MainService.setAfterSalesInfo({
+        inputJson: $scope.afterSale,
+        praviteKey: 'oiox3tmqu1sn56x7occdd'
+      }).success(function (data) {
+        console.log(data);
+        if (data.StatusCode == 0) {
+          CommonService.platformPrompt("申请售后服务成功", "close");
+        } else {
+          CommonService.platformPrompt(data.Msg, "close");
+        }
+      })
+    }
+
+
+  })
+  //培训机构入驻
+  .controller('InstitutionsInCtrl', function ($scope, $stateParams, CommonService, MainService) {
+    $scope.institutionsIn = {}
+
+    $scope.submitInstitutionsIn = function () {
+      console.log($scope.afterSale);
+      //提交售后信息申请
+      MainService.setTrainOrganInfo({
+        inputJson: $scope.institutionsIn,
+        praviteKey: 'oiox3tmqu1sn56x7occdd'
+      }).success(function (data) {
+        console.log(data);
+        if (data.StatusCode == 0) {
+          CommonService.platformPrompt("培训机构入驻成功", "close");
+        } else {
+          CommonService.platformPrompt(data.Msg, "close");
+        }
+      })
+    }
 
   })
   //管家使用指南
@@ -74,10 +117,7 @@ angular.module('starter.controllers', [])
   .controller('ButlerListDetailsCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
 
   })
-  //培训机构入驻
-  .controller('InstitutionsInCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
 
-  })
   //签到页面
   .controller('SignInCtrl', function ($scope, $stateParams, $ionicPopup, $location, CommonService, SigninService) {
     var userId = $location.search()['userId'];
@@ -232,7 +272,7 @@ angular.module('starter.controllers', [])
     $scope.isShow = "start";//显示
     //点击种树
     $scope.plantTrees = function () {
-        $scope.isShow = 'game';
+      $scope.isShow = 'game';
       window.setTimeout(function () {
         $scope.isShow = 'wet';
         $scope.$apply();
