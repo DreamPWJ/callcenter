@@ -79,7 +79,7 @@ angular.module('starter.controllers', [])
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
-          CommonService.platformPrompt("申请售后服务成功", "close");
+          CommonService.platformPrompt("申请售后服务成功", "");
         } else {
           CommonService.platformPrompt(data.Msg, "close");
         }
@@ -90,10 +90,12 @@ angular.module('starter.controllers', [])
   })
   //培训机构入驻
   .controller('InstitutionsInCtrl', function ($scope, $stateParams, CommonService, MainService) {
-    $scope.institutionsIn = {}
+    $scope.institutionsIn = {
+      TrainType: '1',//培训机构类型
+    }
 
     $scope.submitInstitutionsIn = function () {
-      console.log($scope.afterSale);
+      console.log($scope.institutionsIn);
       //提交售后信息申请
       MainService.setTrainOrganInfo({
         inputJson: $scope.institutionsIn,
@@ -101,7 +103,7 @@ angular.module('starter.controllers', [])
       }).success(function (data) {
         console.log(data);
         if (data.StatusCode == 0) {
-          CommonService.platformPrompt("培训机构入驻成功", "close");
+          CommonService.platformPrompt("培训机构入驻成功", "");
         } else {
           CommonService.platformPrompt(data.Msg, "close");
         }
