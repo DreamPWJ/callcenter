@@ -63,13 +63,27 @@ angular.module('starter.controllers', [])
 
   })
   //申请售后服务
-  .controller('AfterSaleCtrl', function ($scope, $stateParams, CommonService, MainService) {
+  .controller('AfterSaleCtrl', function ($scope, $stateParams, $location, CommonService, MainService) {
+    var userId = $location.search()['userId'];
+    var tokenInfo = $location.search()['tokenInfo'];
     $scope.afterSale = {
       OrderTypeId: '1',//订单类型
       AfterSaleTypeId: '1',//售后内容
       DisposeType: '0' //申请处理状态 默认是0，未处理
     }
-
+    //获取用户信息
+    MainService.getUserProfile(
+      {StudentID: userId || "48156"}
+    ).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.afterSale.ApplyName = data.Data.Name;
+        $scope.afterSale.ApplyTelNum = data.Data.TelNum;
+        $scope.afterSale.ApplyQQNumber =data.Data.QQNumber;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
     $scope.submitAfterSale = function () {
       console.log($scope.afterSale);
       //提交售后信息申请
@@ -89,11 +103,25 @@ angular.module('starter.controllers', [])
 
   })
   //培训机构入驻
-  .controller('InstitutionsInCtrl', function ($scope, $stateParams, CommonService, MainService) {
+  .controller('InstitutionsInCtrl', function ($scope, $stateParams, $location, CommonService, MainService) {
+    var userId = $location.search()['userId'];
+    var tokenInfo = $location.search()['tokenInfo'];
     $scope.institutionsIn = {
       TrainType: '1',//培训机构类型
     }
-
+    //获取用户信息
+    MainService.getUserProfile(
+      {StudentID: userId || "48156"}
+    ).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.institutionsIn.Contact1 = data.Data.Name;
+        $scope.institutionsIn.OrganTel1 = data.Data.TelNum;
+        $scope.institutionsIn.ContactQQNum =data.Data.QQNumber;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
     $scope.submitInstitutionsIn = function () {
       console.log($scope.institutionsIn);
       //提交售后信息申请
