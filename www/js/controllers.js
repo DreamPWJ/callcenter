@@ -73,13 +73,16 @@ angular.module('starter.controllers', [])
     }
     //获取用户信息
     MainService.getUserProfile(
-      {StudentID: userId || "48156"}
+      {
+        userId: userId ,//用户id
+        tokenInfo: tokenInfo
+      }
     ).success(function (data) {
       console.log(data);
       if (data.StatusCode == 0) {
         $scope.afterSale.ApplyName = data.Data.Name;
-        $scope.afterSale.ApplyTelNum = data.Data.TelNum;
-        $scope.afterSale.ApplyQQNumber =data.Data.QQNumber;
+        $scope.afterSale.ApplyTelNum = Number(data.Data.TelNum);
+        $scope.afterSale.ApplyQQNumber = Number(data.Data.QQNumber);
       } else {
         CommonService.platformPrompt(data.Msg, "close");
       }
@@ -111,13 +114,15 @@ angular.module('starter.controllers', [])
     }
     //获取用户信息
     MainService.getUserProfile(
-      {StudentID: userId || "48156"}
+      {
+        userId: userId ,//用户id
+        tokenInfo: tokenInfo }
     ).success(function (data) {
       console.log(data);
       if (data.StatusCode == 0) {
         $scope.institutionsIn.Contact1 = data.Data.Name;
-        $scope.institutionsIn.OrganTel1 = data.Data.TelNum;
-        $scope.institutionsIn.ContactQQNum =data.Data.QQNumber;
+        $scope.institutionsIn.OrganTel1 = Number(data.Data.TelNum);
+        $scope.institutionsIn.ContactQQNum = Number(data.Data.QQNumber);
       } else {
         CommonService.platformPrompt(data.Msg, "close");
       }
