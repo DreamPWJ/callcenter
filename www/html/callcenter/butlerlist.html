@@ -3,29 +3,18 @@
     <button class="button button-clear icon ion-ios-arrow-left" nav-direction=back ng-click="$ionicGoBack()"></button>
   </ion-nav-buttons>
   <ion-content overflow-scroll="false" has-bouncing="true" id="butlerlist" class="stable-bg">
-    <div ng-if="false" class="isNotDataHint">
+    <div ng-if="helpList.length==0" class="isNotDataHint">
       <i class="iconfont icon-xiaoxi"></i>
       <p>暂无管家使用指南</p>
     </div>
     <ion-list>
-      <a ng-href="#/butlerlistdetails" class="item item-icon-left item-icon-right">
+      <a ng-href="#/butlerlistdetails/{{item.NewsDesc}}" ng-repeat="item in helpList" class="item item-icon-left item-icon-right">
         <i class="icon ion-compass energized"></i>
-        <h2>管家使用指南列表主标题</h2>
-        <p>管家使用指南列表内容</p>
+        <h2>{{item.NewsTitle}}</h2>
+        <p class="nowrap">{{item.NewsDesc}}</p>
         <i class="icon ion-ios-arrow-right grey"></i>
       </a>
-      <a ng-href="#/butlerlistdetails" class="item item-icon-left item-icon-right">
-        <i class="icon ion-compass energized"></i>
-        <h2>管家使用指南列表主标题</h2>
-        <p>管家使用指南列表内容</p>
-        <i class="icon ion-ios-arrow-right grey"></i>
-      </a>
-      <a ng-href="#/butlerlistdetails" class="item item-icon-left item-icon-right">
-        <i class="icon ion-compass energized"></i>
-        <h2>管家使用指南列表主标题</h2>
-        <p>管家使用指南列表内容</p>
-        <i class="icon ion-ios-arrow-right grey"></i>
-      </a>
+
     </ion-list>
   </ion-content>
 </ion-view>

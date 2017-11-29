@@ -74,7 +74,7 @@ angular.module('starter.controllers', [])
     //获取用户信息
     MainService.getUserProfile(
       {
-        userId: userId ,//用户id
+        userId: userId,//用户id
         tokenInfo: tokenInfo
       }
     ).success(function (data) {
@@ -115,8 +115,9 @@ angular.module('starter.controllers', [])
     //获取用户信息
     MainService.getUserProfile(
       {
-        userId: userId ,//用户id
-        tokenInfo: tokenInfo }
+        userId: userId,//用户id
+        tokenInfo: tokenInfo
+      }
     ).success(function (data) {
       console.log(data);
       if (data.StatusCode == 0) {
@@ -145,12 +146,24 @@ angular.module('starter.controllers', [])
 
   })
   //管家使用指南
-  .controller('ButlerListCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
+  .controller('ButlerListCtrl', function ($scope, $stateParams, CommonService, MainService) {
+    //返回app操作帮助说明
+    MainService.getAppOperatorHelpList({
+      praviteKey: 'oiox3tmqu1sn56x7occdd'
+    }).success(function (data) {
+      console.log(data);
+      if (data.StatusCode == 0) {
+        $scope.helpList = data.Data;
+      } else {
+        CommonService.platformPrompt(data.Msg, "close");
+      }
+    })
 
   })
   //管家使用指南详情
-  .controller('ButlerListDetailsCtrl', function ($scope, $stateParams, CommonService, DetailsService) {
-
+  .controller('ButlerListDetailsCtrl', function ($scope, $stateParams, CommonService) {
+    console.log($stateParams.desc);
+    $scope.details = $stateParams.desc;
   })
 
   //签到页面

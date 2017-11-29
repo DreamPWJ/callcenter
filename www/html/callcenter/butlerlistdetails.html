@@ -3,10 +3,12 @@
     <button class="button button-clear icon ion-ios-arrow-left" nav-direction=back ng-click="$ionicGoBack()"></button>
   </ion-nav-buttons>
   <ion-content overflow-scroll="false" has-bouncing="true" id="butlerlistdetails" class="stable-bg">
-    <div ng-if="true" class="isNotDataHint">
+    <div ng-if="!details" class="isNotDataHint">
       <i class="iconfont icon-xiaoxi"></i>
       <p>暂无管家使用指南详情</p>
     </div>
-
+    <div class="item item-body item-image">
+      <div ng-bind-html="details"></div>
+    </div>
   </ion-content>
 </ion-view>

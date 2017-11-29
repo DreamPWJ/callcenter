@@ -118,7 +118,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'ButlerListCtrl'
       })
       .state('butlerlistdetails', {//管家使用指南详情
-        url: '/butlerlistdetails',
+        url: '/butlerlistdetails/:desc',
         templateUrl: 'html/callcenter/butlerlistdetails.html',
         controller: 'ButlerListDetailsCtrl'
       })
