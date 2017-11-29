@@ -208,6 +208,10 @@ a {
   border-bottom: 1px solid rgba(221, 221, 221, 0.3);
 }
 
+.border-l {
+  border-left: 1px solid rgba(221, 221, 221, 0.3);
+}
+
 .border-r {
   border-right: 1px solid rgba(221, 221, 221, 0.3);
 }
@@ -569,6 +573,12 @@ a {
   height: 38px;
   line-height: 38px;
 }
+
+.hide-same{
+  border: none;
+  padding: 22px;
+}
+
 
 .icon-energized {
   color: #f26604 !important;

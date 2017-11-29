@@ -491,4 +491,5 @@ angular.module('starter.controllers', [])
   //参数对比
   .controller('ParametersDetailsCtrl', function ($scope, $stateParams, CommonService, CompareService) {
     $scope.detailInfo = JSON.parse($stateParams.item);
+    $scope.checked=false;
   })
