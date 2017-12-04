@@ -158,6 +158,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'html/compare/parametersdetails.html',
         controller: 'ParametersDetailsCtrl'
       })
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('index');
+      .state('share', {//分享首页
+        url: '/share',
+        templateUrl: 'html/share/share.html',
+        controller: 'ShareCtrl'
+      }),
+      // if none of the above states are matched, use this as the fallback
+      $urlRouterProvider.otherwise('index');
   })

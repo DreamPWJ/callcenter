@@ -491,5 +491,32 @@ angular.module('starter.controllers', [])
   //参数对比
   .controller('ParametersDetailsCtrl', function ($scope, $stateParams, CommonService, CompareService) {
     $scope.detailInfo = JSON.parse($stateParams.item);
-    $scope.checked=false;
+    $scope.checked = false;
   })
+  //分享
+  .controller('ShareCtrl', function ($scope, $stateParams, CommonService) {
+    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+      var loadDateTime = new Date();
+      window.setTimeout(function() {
+          var timeOutDateTime = new Date();
+          if (timeOutDateTime - loadDateTime < 5000) {
+            window.location = "要跳转的页面URL";
+          } else {
+            window.close();
+          }
+        },
+        25);
+      window.location = " apps custom url schemes ";
+    } else if (navigator.userAgent.match(/android/i)) {
+      var state = null;
+      try {
+        state = window.open("apps custom url schemes ", '_blank');
+      } catch(e) {}
+      if (state) {
+        window.close();
+      } else {
+        window.location = "要跳转的页面URL";
+      }
+    }
+  })
+
